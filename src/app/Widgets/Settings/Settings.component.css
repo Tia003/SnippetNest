@@ -1,0 +1,9 @@
+.container-global{
+    padding: 18px;
+}
+
+.card-tema{
+    min-width: 135px;
+    min-height: 135px;
+    background-color: rgb(102, 102, 102);
+}

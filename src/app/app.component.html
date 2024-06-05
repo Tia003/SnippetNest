@@ -21,17 +21,24 @@
           <cds-header-item>Link 3</cds-header-item>
         </cds-header-menu> -->
       </cds-header-navigation>
-      <cds-header-global></cds-header-global>
+      <cds-header-global>
+        <cds-header-action description="Impostazioni" #sectionSettings>
+          <img src="../assets/icons/settingsHeader.svg" width="21" height="21" alt="Icona">
+        </cds-header-action>
+        <cds-header-action description="action">
+          <img src="../assets/icons/userProfile.svg" width="21" height="21" alt="Icona">
+        </cds-header-action>
+      </cds-header-global>
     </cds-header>
     <cds-sidenav [expanded]="active" style="margin-top: 3rem;">
       <div class="container-button-add-repository">
         <button
-            cdsButton="ghost"
-            size="md"
-            [isExpressive]="false"
-            >
-            <img src="../assets/icons/folderAdd.svg" width="16" height="16" alt="Icona">
-            <span style="margin-left: 10px;" *ngIf="active">Nuova repository</span>
+          cdsButton="ghost"
+          size="md"
+          [isExpressive]="false"
+          >
+          <img src="../assets/icons/folderAdd.svg" width="16" height="16" alt="Icona">
+          <span style="margin-left: 10px;" *ngIf="active">Nuova repository</span>
         </button>
 
       </div>
@@ -47,6 +54,11 @@
           <cds-sidenav-item>Link</cds-sidenav-item>
       </cds-sidenav-menu> -->
   </cds-sidenav>
+
+  <!-- SEZIONI ESPANDIBILI DA DESTRA -->
+  <cds-panel [expanded]="sectionSettings.active">
+    <app-Settings></app-Settings>
+  </cds-panel>
   </div>
 
   <div class="router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet--shifted': active}">

@@ -8,10 +8,14 @@ import { FormsModule } from '@angular/forms';
 
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
+import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
+
+//Widgets
+import { SettingsComponent } from './Widgets/Settings/Settings.component';
+
 
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
-import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
 import { TagModule } from 'carbon-components-angular';
 import { DialogModule } from 'carbon-components-angular';
 import { CodeSnippetModule } from 'carbon-components-angular';
@@ -27,7 +31,8 @@ import { Service } from './service';
   declarations: [
     AppComponent,
     HomeComponent,
-    FolderDetailComponent
+    FolderDetailComponent,
+    SettingsComponent
    ],
   imports: [
     BrowserModule,

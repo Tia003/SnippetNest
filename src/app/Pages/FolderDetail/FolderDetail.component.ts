@@ -119,6 +119,37 @@ export class FolderDetailComponent implements OnInit {
             descrizione: 'Esempio 4 description',
           }
         ],
+      },
+      {
+        id: 1,
+        titolo: 'Terzo snippet',
+        descrizione: 'Terzo snippet description',
+        dataCreazione: '2024-06-04T19:38:18Z',
+        dataModifica: '2024-06-05T19:38:18Z',
+        tag: [
+          {
+            label: 'Web',
+            type: 'purple',
+          },
+          {
+            label: 'Html',
+            type: 'blue',
+          },
+        ],
+        snippetDetails: [
+          {
+            type: 2,
+            titolo: 'Esempio 3',
+            content: 'Contenuto testuale per testare la sezione dedicata al contenuto testuale',
+            descrizione: 'Esempio 3 description',
+          },
+          {
+            type: 1,
+            titolo: 'Esempio 4',
+            content: '<span class="glyphicon">prova</span>',
+            descrizione: 'Esempio 4 description',
+          }
+        ],
       }
     ]
   }

@@ -10,7 +10,6 @@
   flex-direction: column;
   gap: 15px;
   flex: 0 0 38%; /* Set flex-grow, flex-shrink, and flex-basis to 30% */
-  overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 .section-list-snippet-grid {

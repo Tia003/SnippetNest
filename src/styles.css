@@ -22,3 +22,7 @@
   display: flex;
   gap: 5px;
 }
+
+.cds--header-panel.cds--header-panel--expanded{
+  width: 457px !important;
+}
