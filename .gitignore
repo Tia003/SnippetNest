@@ -1,0 +1,62 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# IDEs and editors
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Angular specific files
+.angular
+.angular/cache
+.angular/cli
+
+# Output of 'ng build', 'ng test', 'ng e2e' and 'ng lint'
+/dist
+/out-tsc
+/tmp
+/test-results
+
+# Miscellaneous
+/.env
+/.env.*
+/*.log
+*.log.*
+
+# Compiled files
+*.exe
+*.dll
+*.class
+*.jar
+*.war
+*.pyc
+*.pyo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn v1
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Yarn v2
+.pnp.*
+.yarn/*
