@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Folder } from '../../Modules/Folder';
 import { SnippetContent } from '../../Modules/SnippetContent';
@@ -11,6 +11,8 @@ import { Snippet } from '../../Modules/Snippet';
   styleUrls: ['./FolderDetail.component.css']
 })
 export class FolderDetailComponent implements OnInit {
+
+  @ViewChild('sectionListSnippetVertical') sectionListSnippetVertical!: ElementRef;
 
   folderID: any;
   routeSub: any;
@@ -279,7 +281,11 @@ export class FolderDetailComponent implements OnInit {
     this.showSectionDetails = true;
     this.selectedSnippet = snippets;
     this.snippetDetails = snippets.snippetDetails;
-    console.log(snippets);
+
+    //Porto la label "countTotalSnippets" più a sinistra
+    const div2Width = this.sectionListSnippetVertical.nativeElement.offsetWidth;
+    document.querySelector('.container-title.expand')?.setAttribute('style', `width: ${div2Width}px`);
+    console.log(div2Width);
   }
 
   valueChange(event: any){

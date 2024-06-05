@@ -5,11 +5,22 @@
   gap: 15px;
 }
 
-.section-list-snippet-vertical{
+.container-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionListSnippetVertical{
   display: flex;
   flex-direction: column;
   gap: 15px;
   flex: 0 0 38%; /* Set flex-grow, flex-shrink, and flex-basis to 30% */
+}
+
+.container-title.expand {
+  width: 200px; /* Larghezza stessa della sezione snippet */
 }
 
 .section-list-snippet-grid {

@@ -76,15 +76,16 @@
   </div>
 
   <!-- SEZIONE TITOLO REPOSITORY -->
-  <div class="container-title">
+  <div class="container-title" [class.expand]="showSectionDetails">
     <span class="title-section">{{folder.name}}</span>
+    <span>4 Snippets | CAPISCI COME SPOSTARE QUESTA LA LABEL sto usando class.expand ho toccato (css, ts e html)</span>
   </div>
 
   <!-- SEZIONE DOPPIA VISUALIZZAZIONE -->
   <div class="container-double-section" >
 
     <!-- SEZIONE LISTA SNIPPET -->
-    <div [ngClass]="{'section-list-snippet-vertical': showSectionDetails, 'section-list-snippet-grid': !showSectionDetails}">
+    <div [ngClass]="{'sectionListSnippetVertical': showSectionDetails, 'section-list-snippet-grid': !showSectionDetails}" #sectionListSnippetVertical>
       <div class="snippet-card" *ngFor="let item of folder.snippets">
 
         <div class="content-card-snippet">
