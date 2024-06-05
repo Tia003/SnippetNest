@@ -1,0 +1,56 @@
+<div class="container-global">
+  <div class="container-header" cdsTheme="g100">
+    <cds-header [name]="title" brand="">
+      <cds-hamburger *ngIf="true" [active]="active" (selected)="active = !active"></cds-hamburger>
+      <cds-header-navigation>
+        <!-- <cds-header-item [routerLink]="['home']">
+          <div class="header-item">
+            <img src="../assets/icons/homFolderDetailComponent }" width="16" height="16" alt="Icona">
+            <span>Home</span>
+          </div>
+        </cds-header-item>
+        <cds-header-item [routerLink]="['archivio']">
+          <div class="header-item">
+            <img src="../assets/icons/repoSourceCode.svg" width="16" height="16" alt="Icona">
+            <span>Archivio</span>
+          </div>
+        </cds-header-item> -->
+        <!-- <cds-header-menu title="Manage">
+          <cds-header-item [routerLink]="['archivio']">Link 1</cds-header-item>
+          <cds-header-item [routerLink]="['home']">Link 2</cds-header-item>
+          <cds-header-item>Link 3</cds-header-item>
+        </cds-header-menu> -->
+      </cds-header-navigation>
+      <cds-header-global></cds-header-global>
+    </cds-header>
+    <cds-sidenav [expanded]="active" style="margin-top: 3rem;">
+      <div class="container-button-add-repository">
+        <button
+            cdsButton="ghost"
+            size="md"
+            [isExpressive]="false"
+            >
+            <img src="../assets/icons/folderAdd.svg" width="16" height="16" alt="Icona">
+            <span style="margin-left: 10px;" *ngIf="active">Nuova repository</span>
+        </button>
+
+      </div>
+      <hr >
+      <cds-sidenav-item *ngFor="let folder of folders" [routerLink]="'folderDetail/' + folder.id">
+          <svg [cdsIcon]="folder.icon" size="16"></svg>
+          {{folder.name}}
+      </cds-sidenav-item>
+      <!-- <cds-sidenav-menu title="Category title">
+          <svg cdsIcon="fade" size="16"></svg>
+          <cds-sidenav-item>Link</cds-sidenav-item>
+          <cds-sidenav-item [active]="true">Link</cds-sidenav-item>
+          <cds-sidenav-item>Link</cds-sidenav-item>
+      </cds-sidenav-menu> -->
+  </cds-sidenav>
+  </div>
+
+  <div class="router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet--shifted': active}">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

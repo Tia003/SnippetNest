@@ -1,0 +1,129 @@
+.global-container{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.section-list-snippet{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 0 0 38%; /* Set flex-grow, flex-shrink, and flex-basis to 30% */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.title-section{
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.container-title-and-action{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.snippet-card{
+  background-color: rgb(102, 102, 102);
+  padding: 15px;
+}
+
+.container-header-card-snippet{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.container-content-card-snippet{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.container-tags{
+  display: flex;
+  gap: 5px;
+}
+
+.cds--tag{
+  margin: 0 !important;
+}
+
+.container-title-card{
+  display: flex;
+  gap: 5px;
+}
+
+.footer-card-snippet{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+:host ::ng-deep .cds--overflow-menu:hover, .cds--overflow-menu__trigger:hover{
+  background-color: rgb(102, 102, 102) !important;
+}
+
+:host ::ng-deep .cds--overflow-menu, .cds--overflow-menu__trigger{
+  background-color: rgb(102, 102, 102) !important;
+}
+
+.color-item-menu-list{
+  background-color: rgb(194, 194, 194);
+}
+
+.container-double-section{
+  display: flex;
+  gap: 18px;
+}
+
+.section-snippet-detail{
+  border-left: 1px solid white;
+  padding-left: 18px;
+}
+
+.section-snippet-detail{
+  width: 100% !important;
+}
+
+.container-content-snippet-detail{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.container-snippet-detail{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container-content-type-text{
+  padding: 10px;
+  background-color: #393939;
+  border-left: 5px solid #0F62FE;
+}
+
+:host ::ng-deep .cds--snippet--single{
+  max-inline-size: none;
+}
+
+.content-card-snippet{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-action-page{
+  display: flex;
+  gap: 8px;
+}
+
+.dropdown-filter{
+  min-width: 210px;
+}

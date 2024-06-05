@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@carbon/styles/css/styles.css";
+
+
+.i-w {
+  fill: white;
+}
+
+.title{
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.container-icon-label{
+  display: flex;
+  gap: 5px;
+}

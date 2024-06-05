@@ -1,0 +1,38 @@
+/* .container-global{
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+} */
+
+.container-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+
+.router-outlet {
+  padding-top: 48px;
+  margin-left: 48px;
+  height: calc(100vh);
+  overflow-y: auto;
+  transition: margin-left 0.1s ease;
+  transition: margin-left 0.1s ease-in;
+}
+
+.router-outlet--shifted {
+  margin-left: 256px; /* Move the element 40px to the left */
+}
+
+.header-item{
+  display: flex;
+  gap: 7px;
+  flex-direction: row;
+}
+
+.container-button-add-repository{
+  display: flex;
+  justify-content: center;
+}
