@@ -18,6 +18,7 @@ import { CodeSnippetModule } from 'carbon-components-angular';
 import { SearchModule } from 'carbon-components-angular';
 import { DropdownModule } from 'carbon-components-angular';
 import { DatePickerModule } from 'carbon-components-angular';
+import { ComboBoxModule } from 'carbon-components-angular';
 
 //Services
 import { Service } from './service';
@@ -41,7 +42,8 @@ import { Service } from './service';
     SearchModule,
     DropdownModule,
     FormsModule,
-    DatePickerModule
+    DatePickerModule,
+    ComboBoxModule
   ],
   providers: [
     provideClientHydration(),

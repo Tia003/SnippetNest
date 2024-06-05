@@ -8,5 +8,5 @@ export interface Snippet {
   tag: Tags[];
   dataCreazione: string;
   dataModifica: string;
-  snippet: SnippetContent[];
+  snippetDetails: SnippetContent[];
 }

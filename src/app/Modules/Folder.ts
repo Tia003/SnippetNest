@@ -6,5 +6,5 @@ export interface Folder {
   name: string;
   dataCreazione: string;
   dataModifica: string;
-  content: Snippet[] | null;
+  snippets: Snippet[] | null;
 }

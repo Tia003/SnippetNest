@@ -1,31 +1,46 @@
 <div class="global-container" cdsTheme="g90">
 
+  <!-- SEZIONE FILTRI E RICERCA -->
   <div class="section-action-page">
 
-    <cds-search
+    <cds-combo-box
+      placeholder="Cerca per nome"
+      [(ngModel)]="searchText"
+      size="md"
+      [appendInline]="false"
+      [items]="listAllSnippetTitles"
+      theme="dark"
+      style="width: 100%;"
+    >
+      <cds-dropdown-list></cds-dropdown-list>
+    </cds-combo-box>
+
+    <!-- <cds-search
       theme="dark"
       placeholder="Cerca Snippet"
       autocomplete="on"
+      [(value)]="searchText"
       size="md"
       [expandable]="false"
-    ></cds-search>
+    ></cds-search> -->
 
     <cds-dropdown
       type="multi"
       selectionFeedback="top"
-      [(ngModel)]="model"
+      [(ngModel)]="selectedTag"
       size="md"
       theme="dark"
       placeholder="Filtra per tag"
       class="dropdown-filter"
     >
-      <cds-dropdown-list [items]="items" cdsTheme="g90"></cds-dropdown-list>
+      <cds-dropdown-list [items]="tagList" cdsTheme="g90"></cds-dropdown-list>
     </cds-dropdown>
 
     <cds-date-picker
       size="md"
       cdsTheme="g90"
       [range]="false"
+      [(value)]="selectedDate"
       language="it"
       placeholder="Data inizio"
       theme="dark"
@@ -42,6 +57,7 @@
       kind="primary"
       size="md"
       description="Pulisci filtri"
+      (click)="ClearFilter()"
     >
       <img src="../assets/icons/filterClear.svg" width="16" height="16" alt="Icona">
     </cds-icon-button>
@@ -57,24 +73,26 @@
       </div>
     </button>
 
-
   </div>
 
+  <!-- SEZIONE TITOLO REPOSITORY -->
   <div class="container-title">
     <span class="title-section">{{folder.name}}</span>
   </div>
 
+  <!-- SEZIONE DOPPIA VISUALIZZAZIONE -->
   <div class="container-double-section">
 
-    <div class="section-list-snippet">
-      <div class="snippet-card" *ngFor="let item of folder.content">
+    <!-- SEZIONE LISTA SNIPPET -->
+    <div [ngClass]="{'section-list-snippet-vertical': showSectionDetails, 'section-list-snippet-grid': !showSectionDetails}">
+      <div class="snippet-card" *ngFor="let item of folder.snippets">
 
         <div class="content-card-snippet">
           <div class="container-header-card-snippet">
 
             <div class="container-title-and-action">
               <div class="container-title-card">
-                <img src="../assets/icons/uno.svg" width="26" height="26" alt="Icona">
+                <img src="../assets/icons/snippetIcon.svg" width="24" height="24" alt="Icona">
                 <span class="title">{{item.titolo}}</span>
               </div>
 
@@ -113,7 +131,7 @@
             cdsButton="primary"
             size="sm"
             [isExpressive]="false"
-            (click)="showSnippetDetail(item.snippet)"
+            (click)="showSnippetDetail(item)"
             >
             <b>Visualizza</b>
           </button>
@@ -122,15 +140,33 @@
       </div>
     </div>
 
+    <!-- SEZIONE DETTAGLIO SNIPPET -->
     <div class="section-snippet-detail" *ngIf="showSectionDetails">
 
       <div class="container-content-snippet-detail">
+        <div class="container-title-section-detail-snippet">
+          <div class="container-icon-label">
+            <img src="../assets/icons/snippetIcon.svg" width="30" height="30" alt="Icona">
+            <span class="title-lg">{{selectedSnippet.titolo}}</span>
+          </div>
+          <cds-icon-button
+            buttonId="icon-btn1"
+            type="button"
+            kind="primary"
+            size="md"
+            description="Chiudi sezione"
+            align="left"
+            (click)="showSectionDetails = false"
+          >
+            <img src="../assets/icons/closeDetailSection.svg" width="16" height="16" alt="Icona">
+          </cds-icon-button>
+        </div>
         <div class="container-snippet-detail" *ngFor="let detail of snippetDetails">
           <span class="title">{{detail.titolo}}</span>
 
           <span>{{detail.descrizione}}</span>
 
-          <cds-code-snippet *ngIf="detail.type === snippetTypeCode" >
+          <cds-code-snippet *ngIf="detail.type === snippetTypeCode" align="left">
             {{detail.content}}
           </cds-code-snippet>
 

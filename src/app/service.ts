@@ -25,7 +25,7 @@ export class Service {
       name: 'HTML/CSS',
       dataCreazione: '2024-06-04T19:38:18Z',
       dataModifica: '2024-06-04T19:38:18Z',
-      content: [
+      snippets: [
         {
           id: 1,
           titolo: 'First snippet',
@@ -38,7 +38,7 @@ export class Service {
               type: 'purple',
             }
           ],
-          snippet: [
+          snippetDetails: [
             {
               type: 1,
               titolo: 'Esempio 1',
@@ -69,7 +69,7 @@ export class Service {
               type: 'blue',
             },
           ],
-          snippet: [
+          snippetDetails: [
             {
               type: 7,
               titolo: 'Esempio 3',
@@ -92,7 +92,7 @@ export class Service {
       icon: 'folder',
       dataCreazione: '2024-06-04T19:38:18Z',
       dataModifica: '2024-06-04T19:38:18Z',
-      content: null,
+      snippets: null,
     },
     {
       name: 'Web Development',
@@ -100,7 +100,7 @@ export class Service {
       icon: 'folder',
       dataCreazione: '2024-06-04T19:38:18Z',
       dataModifica: '2024-06-04T19:38:18Z',
-      content: null,
+      snippets: null,
     },
   ];
 

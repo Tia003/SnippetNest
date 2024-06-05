@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Folder } from '../../Modules/Folder';
 import { SnippetContent } from '../../Modules/SnippetContent';
 import { SnippetsType } from '../../SnippetsType.enum';
+import { Snippet } from '../../Modules/Snippet';
 
 @Component({
   selector: 'app-FolderDetail',
@@ -15,6 +16,10 @@ export class FolderDetailComponent implements OnInit {
   routeSub: any;
   showSectionDetails: boolean = false;
   snippetDetails: SnippetContent[] = [];
+  selectedTag: any;
+  selectedDate: any;
+  selectedSnippet!: Snippet;
+  searchText: any = null;
 
   snippetTypeCode: SnippetsType = SnippetsType.Code;
   snippetTypeText: SnippetsType = SnippetsType.Text;
@@ -25,7 +30,7 @@ export class FolderDetailComponent implements OnInit {
     name: 'HTML/CSS',
     dataCreazione: '2024-06-04T19:38:18Z',
     dataModifica: '2024-06-04T19:38:18Z',
-    content: [
+    snippets: [
       {
         id: 1,
         titolo: 'First snippet',
@@ -38,7 +43,7 @@ export class FolderDetailComponent implements OnInit {
             type: 'purple',
           }
         ],
-        snippet: [
+        snippetDetails: [
           {
             type: 1,
             titolo: 'Esempio 1',
@@ -69,7 +74,7 @@ export class FolderDetailComponent implements OnInit {
             type: 'blue',
           },
         ],
-        snippet: [
+        snippetDetails: [
           {
             type: 2,
             titolo: 'Esempio 3',
@@ -100,7 +105,7 @@ export class FolderDetailComponent implements OnInit {
             type: 'blue',
           },
         ],
-        snippet: [
+        snippetDetails: [
           {
             type: 2,
             titolo: 'Esempio 3',
@@ -118,9 +123,7 @@ export class FolderDetailComponent implements OnInit {
     ]
   }
 
-  model: any;
-
-  items: any = [
+  tagList: any = [
     {
       "content": "web"
     },
@@ -128,6 +131,108 @@ export class FolderDetailComponent implements OnInit {
       "content": "html"
     },
   ]
+
+  //_______________________
+
+  prova: any;
+  listAllSnippetTitles = [
+    {
+        content: "Abacus",
+        selected: false
+    },
+    {
+        content: "ssss",
+        selected: false,
+    },
+    {
+        content: "fffff",
+        selected: false
+    },
+    {
+        content: "gggg",
+        selected: false
+    },
+    {
+      content: "element1",
+      selected: false
+  },
+  {
+      content: "element2",
+      selected: false
+  },
+  {
+      content: "element3",
+      selected: false
+  },
+  {
+      content: "element4",
+      selected: false
+  },
+  {
+      content: "element5",
+      selected: false
+  },
+  {
+      content: "element6",
+      selected: false
+  },
+  {
+      content: "element7",
+      selected: false
+  },
+  {
+      content: "element8",
+      selected: false
+  },
+  {
+      content: "element9",
+      selected: false
+  },
+  {
+      content: "element10",
+      selected: false
+  },
+  {
+      content: "element11",
+      selected: false
+  },
+  {
+      content: "element12",
+      selected: false
+  },
+  {
+      content: "element13",
+      selected: false
+  },
+  {
+      content: "element14",
+      selected: false
+  },
+  {
+      content: "element15",
+      selected: false
+  },
+  {
+      content: "element16",
+      selected: false
+  },
+  {
+      content: "element17",
+      selected: false
+  },
+  {
+      content: "element18",
+      selected: false
+  },
+  {
+      content: "element19",
+      selected: false
+  },
+  {
+      content: "element20",
+      selected: false
+  },
+];
 
   constructor(
     public route: ActivatedRoute
@@ -139,14 +244,21 @@ export class FolderDetailComponent implements OnInit {
     });
   }
 
-  showSnippetDetail(snippets: SnippetContent[]){
+  showSnippetDetail(snippets: Snippet){
     this.showSectionDetails = true;
-    this.snippetDetails = snippets;
+    this.selectedSnippet = snippets;
+    this.snippetDetails = snippets.snippetDetails;
     console.log(snippets);
   }
 
   valueChange(event: any){
     console.log(event);
+  }
+
+  ClearFilter(){
+    this.selectedTag = null;
+    this.searchText = null;
+    this.selectedDate = '';
   }
 
 }

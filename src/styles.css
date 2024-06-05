@@ -12,6 +12,12 @@
   color: white;
 }
 
+.title-lg{
+  font-size: 29px;
+  font-weight: 600;
+  color: white;
+}
+
 .container-icon-label{
   display: flex;
   gap: 5px;
