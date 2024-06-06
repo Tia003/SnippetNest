@@ -128,101 +128,13 @@ export class FolderDetailComponent implements OnInit {
 
   listAllSnippetTitles = [
     {
-        content: "Abacus",
+        content: "Form di contatto",
         selected: false
     },
     {
-        content: "ssss",
+        content: "Responsive Navbar",
         selected: false,
     },
-    {
-        content: "fffff",
-        selected: false
-    },
-    {
-        content: "gggg",
-        selected: false
-    },
-    {
-      content: "element1",
-      selected: false
-  },
-  {
-      content: "element2",
-      selected: false
-  },
-  {
-      content: "element3",
-      selected: false
-  },
-  {
-      content: "element4",
-      selected: false
-  },
-  {
-      content: "element5",
-      selected: false
-  },
-  {
-      content: "element6",
-      selected: false
-  },
-  {
-      content: "element7",
-      selected: false
-  },
-  {
-      content: "element8",
-      selected: false
-  },
-  {
-      content: "element9",
-      selected: false
-  },
-  {
-      content: "element10",
-      selected: false
-  },
-  {
-      content: "element11",
-      selected: false
-  },
-  {
-      content: "element12",
-      selected: false
-  },
-  {
-      content: "element13",
-      selected: false
-  },
-  {
-      content: "element14",
-      selected: false
-  },
-  {
-      content: "element15",
-      selected: false
-  },
-  {
-      content: "element16",
-      selected: false
-  },
-  {
-      content: "element17",
-      selected: false
-  },
-  {
-      content: "element18",
-      selected: false
-  },
-  {
-      content: "element19",
-      selected: false
-  },
-  {
-      content: "element20",
-      selected: false
-  },
 ];
 
   constructor(
