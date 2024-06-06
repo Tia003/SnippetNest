@@ -6,4 +6,52 @@
     min-width: 135px;
     min-height: 135px;
     background-color: rgb(102, 102, 102);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-checkbox-theme{
+    display: flex;
+    align-items: center;
+    background-color: #393939;
+    color: white;
+    height: 37px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.light-image-background{
+    background-image: url('../../../assets/img/LightTheme.png');
+    background-size: cover; /* Adatta l'immagine per coprire l'intero sfondo */
+    background-position: center; /* Centra l'immagine */
+}
+
+.dark-image-background{
+    background-image: url('../../../assets/img/pp.png');
+    background-size: cover; /* Adatta l'immagine per coprire l'intero sfondo */
+    background-position: center; /* Centra l'immagine */
+}
+
+.container-section-selection-theme{
+    display: flex; 
+    gap: 8px;
+}
+
+.container-item-list-settings{
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px;
+}
+
+.container-all-items-list-settings{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-flag-label{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }

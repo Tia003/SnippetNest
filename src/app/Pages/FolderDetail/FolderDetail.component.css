@@ -8,19 +8,22 @@
 .container-title{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  gap: 12px;
   justify-content: space-between;
+  align-items: center;
 }
 
-.sectionListSnippetVertical{
+.container-label-title{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-list-snippet-vertical{
   display: flex;
   flex-direction: column;
   gap: 15px;
   flex: 0 0 38%; /* Set flex-grow, flex-shrink, and flex-basis to 30% */
-}
-
-.container-title.expand {
-  width: 200px; /* Larghezza stessa della sezione snippet */
 }
 
 .section-list-snippet-grid {
@@ -44,7 +47,7 @@
 
 .snippet-card{
   width: 100%;
-  background-color: rgb(102, 102, 102);
+  background-color: #393939;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -54,7 +57,7 @@
 .container-header-card-snippet{
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 6px;
 }
 
 .container-content-card-snippet{
@@ -63,6 +66,7 @@
   gap: 15px;
   margin-top: 8px;
   margin-bottom: 8px;
+  line-height: 20px;
 }
 
 .container-tags{
@@ -84,18 +88,19 @@
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 15px;
+  gap: 6px;
 }
 
 :host ::ng-deep .cds--overflow-menu:hover, .cds--overflow-menu__trigger:hover{
-  background-color: rgb(102, 102, 102) !important;
+  background-color: #0050e6 !important;
 }
 
 :host ::ng-deep .cds--overflow-menu, .cds--overflow-menu__trigger{
-  background-color: rgb(102, 102, 102) !important;
+  background-color: #0F62FE !important;
 }
 
 .color-item-menu-list{
-  background-color: rgb(194, 194, 194);
+  background-color: rgb(216, 216, 216);
 }
 
 .container-double-section{
@@ -128,6 +133,7 @@
   padding: 10px;
   background-color: #393939;
   border-left: 5px solid #0F62FE;
+  line-height: 21px;
 }
 
 :host ::ng-deep .cds--snippet--single{
@@ -142,7 +148,7 @@
 
 .section-action-page{
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
 
 .dropdown-filter{
@@ -152,4 +158,14 @@
 .container-title-section-detail-snippet{
   display: flex;
   justify-content: space-between;
+}
+
+:host ::ng-deep .button-menu-action{
+  background-color: #0f62fe !important;
+}
+
+.code-snippet-container{
+  height: 100%;
+  padding: 8px;
+  border-left: 5px solid #00ff0075;
 }

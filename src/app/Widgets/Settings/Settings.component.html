@@ -2,22 +2,61 @@
 
   <!-- SEZIONE TITOLO -->
   <div class="container-icon-label">
-    <img src="../assets/icons/settingsIcon.svg" width="30" height="30" alt="Icona">
+    <img src="../../../assets/icons/settingsIcon.svg" width="30" height="30" alt="Icona">
     <span class="title-lg">Impostazioni</span>
   </div>
 
   <!-- SEZIONE ELENCO -->
-  <div style="margin-top: 30px;">
-    <div style="display: flex; flex-direction: column; gap: 8px;">
+  <div class="container-all-items-list-settings mt-3">
+
+    <div class="container-item-list-settings">
       <span class="title">Tema</span>
-      <div style="display: flex; gap: 8px;">
-        <div class="card-tema">
-          
-        </div>
-        <div class="card-tema">2</div>
-        <div class="card-tema">3</div>
-      </div>
+      <span>Scegli il tema che preferisci</span>
+      <cds-radio-group
+          (change)="onChangeTheme($event)" class="mt-1">
+
+          <div class="container-section-selection-theme">
+
+            <div class="card-tema light-image-background">
+              <div></div>
+              <div class="container-checkbox-theme">
+                <cds-radio name="theme" value="One">Tema chiaro</cds-radio>
+              </div>
+            </div>
+    
+            <div class="card-tema dark-image-background">
+              <div></div>
+              <div class="container-checkbox-theme">
+                <cds-radio name="theme" value="Two" [checked]="true">Tema scuro</cds-radio>
+              </div>
+            </div>
+
+          </div>
+      </cds-radio-group>
     </div>
+
+    <div class="container-item-list-settings">
+      <span class="title">Lingua</span>
+      <span>Personalizza la lingua del portale secondo le tue preferenze</span>
+
+      <cds-tile-group [multiple]="false" class="mt-1">
+        <cds-selection-tile value="tile1" [selected]="true">
+          <div class="container-flag-label">
+            <img src="../../../assets/icons/it.svg" width="30" height="30" alt="Icona">
+            <span>Italiano</span>
+          </div>
+        </cds-selection-tile>
+        <cds-selection-tile value="tile3">
+          <div class="container-flag-label">
+            <img src="../../../assets/icons/gb.svg" width="30" height="30" alt="Icona">
+            <span>Inglese</span>
+          </div>
+        </cds-selection-tile>
+      </cds-tile-group>
+
+    </div>
+    
   </div>
+
 
 </div>

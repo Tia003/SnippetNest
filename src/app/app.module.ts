@@ -13,7 +13,6 @@ import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.compone
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
 
-
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
 import { TagModule } from 'carbon-components-angular';
@@ -23,15 +22,20 @@ import { SearchModule } from 'carbon-components-angular';
 import { DropdownModule } from 'carbon-components-angular';
 import { DatePickerModule } from 'carbon-components-angular';
 import { ComboBoxModule } from 'carbon-components-angular';
+import { RadioModule } from 'carbon-components-angular';
+import { SelectModule } from 'carbon-components-angular';
+import { TilesModule } from 'carbon-components-angular';
 
 //Services
 import { Service } from './service';
+import { TruncateString } from './truncateString.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FolderDetailComponent,
+    TruncateString,
     SettingsComponent
    ],
   imports: [
@@ -48,7 +52,10 @@ import { Service } from './service';
     DropdownModule,
     FormsModule,
     DatePickerModule,
-    ComboBoxModule
+    ComboBoxModule,
+    RadioModule,
+    SelectModule,
+    TilesModule
   ],
   providers: [
     provideClientHydration(),
