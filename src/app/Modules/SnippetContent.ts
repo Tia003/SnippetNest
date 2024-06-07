@@ -1,6 +1,6 @@
 export interface SnippetContent {
   type: number;
   titolo: string;
-  content: string;
+  content: any;
   descrizione: string;
 }

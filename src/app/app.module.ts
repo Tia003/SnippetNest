@@ -12,6 +12,7 @@ import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.compone
 
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
+import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
 
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
@@ -36,7 +37,8 @@ import { TruncateString } from './truncateString.pipe';
     HomeComponent,
     FolderDetailComponent,
     TruncateString,
-    SettingsComponent
+    SettingsComponent,
+    ScrollOnTopPageComponent
    ],
   imports: [
     BrowserModule,

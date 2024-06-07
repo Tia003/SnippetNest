@@ -1,4 +1,4 @@
-<div class="global-container" cdsTheme="g90">
+<div class="global-container" cdsTheme="g90" #globalContainer>
 
   <!-- SEZIONE FILTRI E RICERCA -->
   <div class="section-action-page">
@@ -11,6 +11,7 @@
       [items]="listAllSnippetTitles"
       theme="dark"
       style="width: 100%;"
+      (search)="onSearchChange($event)"
     >
       <cds-dropdown-list cdsTheme="g90"></cds-dropdown-list>
     </cds-combo-box>
@@ -33,11 +34,11 @@
       [range]="false"
       [(value)]="selectedDate"
       language="it"
-      placeholder="Creato dopo il"
+      placeholder="Creato a partire dal"
       theme="dark"
       [rangeWarn]="false"
       rangeWarnText="warnText"
-      dateFormat="m/d/Y"
+      dateFormat="d/m/Y"
       (valueChange)="FilterDateChange($event)"
       class="date-picker-snippet"
     ></cds-date-picker>
@@ -64,7 +65,7 @@
         <img src="../../../assets/icons/folderDetails.svg" width="28" height="28" alt="Icona">
         <span class="title-lg">{{folder.name}}</span>
       </div>
-      <div class="flexColumn gap-5">
+      <!-- <div class="flexColumn gap-5">
         <div class="container-icon-label align-center">
           <img src="../../../assets/icons/circleFilledBlue.svg" width="12" height="12" alt="Icona">
           <span>4 Snippet totali</span>
@@ -73,7 +74,7 @@
           <img src="../../../assets/icons/circleFilledYellow.svg" width="12" height="12" alt="Icona">
           <span>Ultima modifica 2 min fa</span>
         </div>
-      </div>
+      </div> -->
     </div>
     
     <div class="container-icon-label">
@@ -112,10 +113,14 @@
   </div>
 
   <!-- SEZIONE DOPPIA VISUALIZZAZIONE -->
-  <div class="container-double-section" >
+  <div class="container-double-section">
 
     <!-- SEZIONE LISTA SNIPPET -->
-    <div [ngClass]="{'section-list-snippet-vertical': showSectionDetails, 'section-list-snippet-grid': !showSectionDetails}">
+    <div [ngClass]="{
+        'section-list-snippet-vertical': showSectionDetails, 
+        'section-list-snippet-grid': (!showSectionDetails && globalContainer.offsetWidth > 1290),
+        'two-element-list-snippet-grid': (globalContainer.offsetWidth <= 1290 && !showSectionDetails)
+      }">
       
       <div class="snippet-card" *ngFor="let item of folderTemp.snippets">
 
@@ -145,15 +150,17 @@
 
 
         <div>
-          <div class="flexColumn gap-8 mt-1">
-            <div class="container-icon-label">
-              <img src="../../../assets/icons/calendar.svg" width="16" height="16" alt="Icona">
-              <span>{{item.dataCreazione | date: 'dd/MM/yyyy HH:mm'}}</span>
-            </div>
-  
-            <div class="container-icon-label" *ngIf="item.dataCreazione != item.dataModifica">
-              <img src="../../../assets/icons/calendarEdit.svg" width="16" height="16" alt="Icona">
-              <span>{{item.dataModifica | date: 'dd/MM/yyyy HH:mm'}}</span>
+
+          <div class="mt-1">
+            <div class="flexColumn gap-5">
+              <div class="container-icon-label align-center">
+                <img src="../../../assets/icons/circleFilledBlue.svg" width="12" height="12" alt="Icona">
+                <span>{{item.snippetDetails.length}} Snippet totali</span>
+              </div>
+              <div class="container-icon-label align-center">
+                <img src="../../../assets/icons/circleFilledYellow.svg" width="12" height="12" alt="Icona">
+                <span>Ultima modifica 2 min fa</span>
+              </div>
             </div>
           </div>
           
@@ -256,12 +263,26 @@
 
           <span>{{detail.descrizione}}</span>
 
-          <cds-code-snippet *ngIf="detail.type === snippetTypeCode" align="left" class="code-snippet-container">
+          <cds-code-snippet 
+            [display]="!detail.content.includes('\n') ? inline : multi"
+            *ngIf="detail.type === snippetTypeCode"
+            [maxCollapsedNumberOfRows]="15"
+            align="left" 
+            class="container-code-snippet"
+            [ngClass]="{'color-border-code-section': detail.content.includes('\n')}"
+          >
             {{detail.content}}
           </cds-code-snippet>
 
           <div class="container-content-type-text" *ngIf="detail.type === snippetTypeText">
             {{detail.content}}
+          </div>
+
+          <div class="container-section-snippet-type-image" *ngIf="detail.type === snippetTtpeImage">
+            <div class="card-snippet-imag" *ngFor="let image of detail.content" #card>
+              <img [src]="image" alt="Immagine">
+              <div class="overlay">Apri</div>
+            </div>
           </div>
 
         </div>
@@ -271,6 +292,5 @@
     </div>
 
   </div>
-
 
 </div>

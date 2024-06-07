@@ -4,6 +4,7 @@ import { Folder } from '../../Modules/Folder';
 import { SnippetContent } from '../../Modules/SnippetContent';
 import { SnippetsType } from '../../SnippetsType.enum';
 import { Snippet } from '../../Modules/Snippet';
+import { SnippetType } from 'carbon-components-angular';
 
 @Component({
   selector: 'app-FolderDetail',
@@ -24,6 +25,7 @@ export class FolderDetailComponent implements OnInit {
 
   snippetTypeCode: SnippetsType = SnippetsType.Code;
   snippetTypeText: SnippetsType = SnippetsType.Text;
+  snippetTtpeImage: SnippetsType = SnippetsType.Image;
 
   pathIconDeleteBlack: string = '../../../assets/icons/deleteBlack.svg';
   pathIconDeleteWhite: string = '../../../assets/icons/deleteWhite.svg';
@@ -58,9 +60,15 @@ export class FolderDetailComponent implements OnInit {
           ],
           "snippetDetails": [
             {
+              "type": 3,
+              "titolo": "Codice HTML",
+              "content": ['../../../assets/img/download.jpeg', '../../../assets/img/download.jpeg'],
+              "descrizione": "Form HTML"
+            },
+            {
               "type": 1,
               "titolo": "Codice HTML",
-              "content": "<form>\n  <label for=\"name\">Nome:</label><br>\n  <input type=\"text\" id=\"name\" name=\"name\"><br>\n  <label for=\"email\">Email:</label><br>\n  <input type=\"email\" id=\"email\" name=\"email\"><br>\n  <label for=\"message\">Messaggio:</label><br>\n  <textarea id=\"message\" name=\"message\"></textarea><br>\n  <input type=\"submit\" value=\"Invia\">\n</form>",
+              "content": "npm install --save",
               "descrizione": "Form HTML"
             },
             {
@@ -113,6 +121,9 @@ export class FolderDetailComponent implements OnInit {
       ]
   }
   
+  inline: SnippetType = SnippetType.inline;
+  multi: SnippetType = SnippetType.multi;
+
   folderTemp: Folder = {...this.folder };
 
   tagList: any = [
@@ -124,8 +135,6 @@ export class FolderDetailComponent implements OnInit {
     },
   ]
 
-  //_______________________
-
   listAllSnippetTitles = [
     {
         content: "Form di contatto",
@@ -135,7 +144,7 @@ export class FolderDetailComponent implements OnInit {
         content: "Responsive Navbar",
         selected: false,
     },
-];
+  ];
 
   constructor(
     public route: ActivatedRoute
@@ -165,7 +174,7 @@ export class FolderDetailComponent implements OnInit {
 
   ClearFilter(){
     this.selectedTag = null;
-    this.searchText = null;
+    this.searchText = '';
     this.selectedDate = '';
   }
   
@@ -175,6 +184,11 @@ export class FolderDetailComponent implements OnInit {
 
   onButtonDeleteOut(){
     this.currentPathIconDelete = this.pathIconDeleteBlack;
+  }
+
+  onSearchChange(event: any){
+    this.searchText = event;
+    console.log("onSearchChange", event);
   }
   
 }
