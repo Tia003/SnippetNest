@@ -5,6 +5,7 @@ import { SnippetContent } from '../../Modules/SnippetContent';
 import { SnippetsType } from '../../SnippetsType.enum';
 import { Snippet } from '../../Modules/Snippet';
 import { SnippetType } from 'carbon-components-angular';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-FolderDetail',
@@ -26,10 +27,14 @@ export class FolderDetailComponent implements OnInit {
   snippetTypeCode: SnippetsType = SnippetsType.Code;
   snippetTypeText: SnippetsType = SnippetsType.Text;
   snippetTtpeImage: SnippetsType = SnippetsType.Image;
+  snippetTtpeLink: SnippetsType = SnippetsType.Link;
 
   pathIconDeleteBlack: string = '../../../assets/icons/deleteBlack.svg';
   pathIconDeleteWhite: string = '../../../assets/icons/deleteWhite.svg';
   currentPathIconDelete: string = this.pathIconDeleteBlack;
+
+  errorImage: any;
+  currentIndex: any;
 
   folder: Folder = {
       "id": 12,
@@ -60,9 +65,9 @@ export class FolderDetailComponent implements OnInit {
           ],
           "snippetDetails": [
             {
-              "type": 3,
+              "type": 7,
               "titolo": "Codice HTML",
-              "content": ['../../../assets/img/download.jpeg', '../../../assets/img/download.jpeg'],
+              "content": 'https://primeng.org/installation',
               "descrizione": "Form HTML"
             },
             {
@@ -120,6 +125,9 @@ export class FolderDetailComponent implements OnInit {
         }
       ]
   }
+
+  currentListImages: string = "";
+  modalOpen: boolean = false;
   
   inline: SnippetType = SnippetType.inline;
   multi: SnippetType = SnippetType.multi;
@@ -147,7 +155,8 @@ export class FolderDetailComponent implements OnInit {
   ];
 
   constructor(
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private clipboardService: ClipboardService
   ) { }
 
   ngOnInit() {
@@ -190,5 +199,31 @@ export class FolderDetailComponent implements OnInit {
     this.searchText = event;
     console.log("onSearchChange", event);
   }
+
+  prevImage() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  nextImage() {
+    if (this.currentIndex < this.currentListImages.length - 1) {
+      this.currentIndex++;
+    }
+  }
   
+  openModal(image: string) {
+    this.currentListImages = image;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+    this.currentListImages = '';
+  }
+
+  copyText(text: any) {
+    this.clipboardService.copy(text);
+  }
+
 }

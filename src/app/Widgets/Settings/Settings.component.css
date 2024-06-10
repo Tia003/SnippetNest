@@ -28,7 +28,7 @@
 }
 
 .dark-image-background{
-    background-image: url('../../../assets/img/pp.png');
+    background-image: url('../../../assets/img/DarkTheme.png');
     background-size: cover; /* Adatta l'immagine per coprire l'intero sfondo */
     background-position: center; /* Centra l'immagine */
 }

@@ -263,12 +263,13 @@
 
           <span>{{detail.descrizione}}</span>
 
-          <cds-code-snippet 
+          <cds-code-snippet
             [display]="!detail.content.includes('\n') ? inline : multi"
             *ngIf="detail.type === snippetTypeCode"
             [maxCollapsedNumberOfRows]="15"
-            align="left" 
+            align="left"
             class="container-code-snippet"
+            style="overflow-y: hidden; max-inline-size: none;"
             [ngClass]="{'color-border-code-section': detail.content.includes('\n')}"
           >
             {{detail.content}}
@@ -279,18 +280,48 @@
           </div>
 
           <div class="container-section-snippet-type-image" *ngIf="detail.type === snippetTtpeImage">
-            <div class="card-snippet-imag" *ngFor="let image of detail.content" #card>
-              <img [src]="image" alt="Immagine">
-              <div class="overlay">Apri</div>
+            <div class="card-snippet-imag" *ngFor="let image of detail.content" #card (click)="errorImage != image ? openModal(image) : null">
+              <img [src]="image" alt="Immagine" onerror="this.src='../../../assets/icons/trasparente.svg'" (error)="errorImage = image">
+              <div class="overlay" *ngIf="errorImage != image">Apri</div>
+              <div class="errorOverlay" *ngIf="errorImage == image"><img src="../../../assets/icons/noImage.svg"></div>
+            </div>
+          </div>
+
+          <div *ngIf="detail.type === snippetTtpeLink">
+            <div class="container-content-type-link flexRow justify-space-between">
+              <div class="flexRow align-streach gap-8">
+                <img src="../../../assets/icons/link.svg" width="20" height="20" alt="Icona">
+                <span>{{detail.content}}</span>
+              </div>
+              <div class="flexRow align-start gap-15">
+                <a [href]="detail.content" target="_blank" >
+                  <img src="../../../assets/icons/goToLink.svg" width="20" height="20" alt="Icona" matTooltip="text">
+                </a>
+                <img src="../../../assets/icons/copy.svg" width="20" height="20" alt="Icona" class="copyLink" (click)="copyText(detail.content)">
+              </div>
             </div>
           </div>
 
         </div>
       </div>
 
-
     </div>
 
   </div>
 
 </div>
+
+<!-- MODAL PER VISUALIZZAZIONI FOTO -->
+<ibm-modal [open]="modalOpen" (close)="closeModal()">
+  <ibm-modal-header (closeSelect)="closeModal()" closeLabel="">
+  </ibm-modal-header>
+  <section class="bx--modal-content mt-2">
+    <div class="container-carosello-list-image">
+      <div class="carousel">
+        <div class="carousel-images" [ngStyle]="{'transform': 'translateX(' + (-currentIndex * 100) + '%)'}">
+          <img [src]="currentListImages" alt="Carosello Immagine">
+        </div>
+      </div>
+    </div>
+  </section>
+</ibm-modal>

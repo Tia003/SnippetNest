@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
+import { ClipboardModule } from 'ngx-clipboard';
+
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
 import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
@@ -26,6 +28,7 @@ import { ComboBoxModule } from 'carbon-components-angular';
 import { RadioModule } from 'carbon-components-angular';
 import { SelectModule } from 'carbon-components-angular';
 import { TilesModule } from 'carbon-components-angular';
+import { ModalModule } from 'carbon-components-angular'
 
 //Services
 import { Service } from './service';
@@ -57,7 +60,9 @@ import { TruncateString } from './truncateString.pipe';
     ComboBoxModule,
     RadioModule,
     SelectModule,
-    TilesModule
+    TilesModule,
+    ModalModule,
+    ClipboardModule
   ],
   providers: [
     provideClientHydration(),

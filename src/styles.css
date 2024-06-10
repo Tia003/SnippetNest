@@ -37,6 +37,10 @@ button.cds--btn.cds--btn--primary.cds--btn--sm.cds--layout--size-sm{
   align-items: center;
 }
 
+.align-stretch{
+  align-items: stretch;
+}
+
 .mt-1{
   margin-top: 10px;
 }
@@ -54,6 +58,20 @@ button.cds--btn.cds--btn--primary.cds--btn--sm.cds--layout--size-sm{
   flex-direction: column;
 }
 
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-space-between{
+  justify-content: space-between;
+}
+
+.align-start{
+  align-items: flex-start;
+}
+
+
 .gap-5{
   gap: 5px;
 }
@@ -62,7 +80,19 @@ button.cds--btn.cds--btn--primary.cds--btn--sm.cds--layout--size-sm{
   gap: 8px;
 }
 
+.gap-10{
+  gap: 10px;
+}
+
+.gap-15{
+  gap: 15px;
+}
+
 fieldset {
   display: flex;
   flex-direction: row;
+}
+
+.cds--snippet--multi .cds--snippet-container{
+  overflow: hidden;
 }
