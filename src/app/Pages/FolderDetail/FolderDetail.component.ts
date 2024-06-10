@@ -120,6 +120,24 @@ export class FolderDetailComponent implements OnInit {
               "titolo": "Stile CSS",
               "content": "nav {\n  overflow: hidden;\n  background-color: #333;\n}\n\nnav ul {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n}\n\nnav ul li {\n  float: left;\n}\n\nnav ul li a {\n  display: block;\n  color: white;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n}",
               "descrizione": "Stile della navbar"
+            },
+            {
+              "type": 2,
+              "titolo": "Annotazione su responsive",
+              "content": "N.B. Quando sviluppi il front-end stai attento al responsive",
+              "descrizione": ""
+            },
+            {
+              "type": 3,
+              "titolo": "Screenshot del front-end finale",
+              "content": ['../../../assets/img/download.jpeg'],
+              "descrizione": "Screenshot del front-end e dei mockup fatti prima dello sviluppo dell'applivativo"
+            },
+            {
+              "type": 7,
+              "titolo": "Link tool per generazione mockup",
+              "content": "http://mockup.com",
+              "descrizione": "Link del tool per generazione mock-up",
             }
           ]
         }

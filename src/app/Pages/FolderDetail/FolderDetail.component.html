@@ -129,7 +129,7 @@
 
             <div class="container-title-and-action">
               <div class="container-title-card">
-                <img src="../../../assets/icons/snippetIcon.svg" width="24" height="24" alt="Icona">
+                <img src="../../../assets/icons/iconSneppet.svg" width="24" height="24" alt="Icona">
                 <span class="title">{{item.titolo}}</span>
               </div>
             </div>
@@ -175,7 +175,14 @@
               <b>Visualizza</b>
             </button>
 
+            <!-- BOTTONE MOD E DELETE IN ICON BUTTON QUANDO IL DETAIL E' DISABILITATO -->
             <cds-overflow-menu [flip]="true" *ngIf="!showSectionDetails">
+              <cds-overflow-menu-option class="color-item-menu-list">
+                <div class="container-icon-label">
+                  <img src="../../../assets/icons/spostaSnippetBlack.svg" width="18" height="18" alt="Icona">
+                  <b>Sposta</b>
+                </div>
+              </cds-overflow-menu-option>
               <cds-overflow-menu-option class="color-item-menu-list">
                 <div class="container-icon-label">
                   <img src="../../../assets/icons/editBlack.svg" width="18" height="18" alt="Icona">
