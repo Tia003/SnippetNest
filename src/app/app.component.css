@@ -4,6 +4,10 @@
   gap: 45px;
 } */
 
+.container-global-noLoggedIn{
+  height: 100vh;
+}
+
 .container-header {
   position: fixed;
   top: 0;

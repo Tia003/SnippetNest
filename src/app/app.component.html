@@ -1,4 +1,12 @@
-<div class="container-global">
+<!-- SEZIONE NO MENU -->
+
+<div class="container-global-noLoggedIn" cdsTheme="g100" *ngIf="!this.isLoggedIn">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- SEZIONE MENU - LOGGED IN -->
+
+<div class="container-global" *ngIf="this.isLoggedIn">
   <div class="container-header" cdsTheme="g100">
     <cds-header [name]="title" brand="">
       <cds-hamburger *ngIf="true" [active]="active" (selected)="active = !active"></cds-hamburger>

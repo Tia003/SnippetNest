@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
 import { ClipboardModule } from 'ngx-clipboard';
 
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
 import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
+import { LoginComponent } from './Pages/Login/Login.component';
 
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
@@ -31,8 +30,9 @@ import { TilesModule } from 'carbon-components-angular';
 import { ModalModule } from 'carbon-components-angular'
 
 //Services
-import { Service } from './service';
+import { Service } from './Services/service';
 import { TruncateString } from './truncateString.pipe';
+import { AuthService } from './Services/AuthService';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { TruncateString } from './truncateString.pipe';
     FolderDetailComponent,
     TruncateString,
     SettingsComponent,
-    ScrollOnTopPageComponent
+    ScrollOnTopPageComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
@@ -67,6 +68,7 @@ import { TruncateString } from './truncateString.pipe';
   providers: [
     provideClientHydration(),
     Service,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

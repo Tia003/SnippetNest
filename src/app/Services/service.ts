@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { SnippetsType } from './SnippetsType.enum';
-import { Folder } from './Modules/Folder';
+import { Folder } from '../Modules/Folder';
 
 @Injectable({
   providedIn: 'root'
