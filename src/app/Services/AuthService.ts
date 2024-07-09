@@ -1,4 +1,4 @@
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,11 +7,9 @@ import { Injectable } from '@angular/core';
 
 export class AuthService {
 
-    isLoggedIn: boolean = true;
-    router: any;
+    isLoggedIn: boolean = false;
 
-    constructor(router: RouterModule) { 
-        this.router = router;
+    constructor(private router: Router) {
     }
     public login() {
         this.isLoggedIn = true;

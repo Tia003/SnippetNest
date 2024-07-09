@@ -28,6 +28,8 @@ import { RadioModule } from 'carbon-components-angular';
 import { SelectModule } from 'carbon-components-angular';
 import { TilesModule } from 'carbon-components-angular';
 import { ModalModule } from 'carbon-components-angular'
+import { InputModule } from 'carbon-components-angular';
+import { CheckboxModule } from 'carbon-components-angular';
 
 //Services
 import { Service } from './Services/service';
@@ -63,7 +65,9 @@ import { AuthService } from './Services/AuthService';
     SelectModule,
     TilesModule,
     ModalModule,
-    ClipboardModule
+    ClipboardModule,
+    InputModule,
+    CheckboxModule
   ],
   providers: [
     provideClientHydration(),

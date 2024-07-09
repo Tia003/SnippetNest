@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/AuthService';
 
 @Component({
@@ -8,16 +8,60 @@ import { AuthService } from '../../Services/AuthService';
 })
 export class LoginComponent implements OnInit {
 
-  isLoggedIn: any;
-  authService: AuthService | undefined;
+  constructor(
+    public authService: AuthService
+  ) { }
 
-  constructor() { }
+  keepConnectCheck: boolean = false;
+
+  ctrlPressed = false;
+  isHovering = false;
 
   ngOnInit() {
   }
 
-  login(){
-    this.authService?.login();
+  @HostListener('document:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Control') {
+      this.ctrlPressed = true;
+      if (this.isHovering) {
+        this.addRotateClass();
+      }
+    }
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  handleKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Control') {
+      this.ctrlPressed = false;
+      this.removeRotateClass();
+    }
+  }
+
+  onMouseEnter() {
+    this.isHovering = true;
+    if (this.ctrlPressed) {
+      this.addRotateClass();
+    }
+  }
+
+  onMouseLeave() {
+    this.isHovering = false;
+    this.removeRotateClass();
+  }
+
+  addRotateClass() {
+    const element = document.querySelector('#logo');
+    if (element) {
+      element.classList.add('rotate');
+    }
+  }
+
+  removeRotateClass() {
+    const element = document.querySelector('#logo');
+    if (element) {
+      element.classList.remove('rotate');
+    }
   }
 
 }

@@ -1,0 +1,107 @@
+.container-global{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.container-welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px
+}
+
+.card{
+    min-width: 455px;
+    padding: 20px;
+}
+
+.container-button-login-type{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.container-divider{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.divider{
+    width: 100%;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#forgonLink:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container-login-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button-login{
+    width: 100%;
+}
+
+button#button-login{
+    max-inline-size: none;
+    display: flex;
+    justify-content: center;
+}
+
+.container-registrati-link{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+#registratiLinkButton{
+    color: #0F62FE;
+}
+
+#registratiLinkButton:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container-logo{
+    display: flex;
+    justify-content: center;
+}
+
+#title-logo{
+    font-size: 35px;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #logo.rotate {
+    animation: rotate 1s linear infinite;
+  }

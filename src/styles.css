@@ -96,3 +96,7 @@ fieldset {
 .cds--snippet--multi .cds--snippet-container{
   overflow: hidden;
 }
+
+.mb-1{
+  margin-bottom: 10px;
+}

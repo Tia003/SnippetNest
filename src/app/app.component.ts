@@ -15,14 +15,15 @@ export class AppComponent {
   active: boolean = true;
   folders: Folder[] = [];
 
-  constructor(service: Service, authService: AuthService) {
-    this.isLoggedIn = authService.isLoggedIn;
+  constructor(
+    public service: Service, 
+    public authService: AuthService,
+  ) {
     this.folders = service.getListFolders();
-    console.log(this.folders);
   }
 
   ngOnInit() {
-    console.log(this.isLoggedIn);
+
   }
 
 }
