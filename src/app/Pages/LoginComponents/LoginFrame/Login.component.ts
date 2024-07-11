@@ -1,23 +1,37 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { AuthService } from '../../Services/AuthService';
+import { Component, HostListener, Injectable, OnInit } from '@angular/core';
+import { AuthService } from '../../../Services/AuthService';
 
 @Component({
   selector: 'app-Login',
   templateUrl: './Login.component.html',
   styleUrls: ['./Login.component.css']
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class LoginComponent implements OnInit {
 
   constructor(
     public authService: AuthService
   ) { }
 
-  keepConnectCheck: boolean = false;
-
+  // Altro
   ctrlPressed = false;
   isHovering = false;
 
-  ngOnInit() {
+  // LoginFrame 
+  public showAccedi: boolean = true;
+  public showRegistrati: boolean = false;
+  public showForgotPassword: boolean = false;
+
+  ngOnInit() { }
+
+  public OnshowForgotPassword(){
+    this.showForgotPassword = !this.showForgotPassword;
+    this.showAccedi = false;
+    this.showRegistrati = false;
   }
 
   @HostListener('document:keydown', ['$event'])
