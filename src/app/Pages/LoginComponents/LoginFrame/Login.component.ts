@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   isHovering = false;
 
   // LoginFrame 
-  public showAccedi: boolean = true;
+  public showAccedi: boolean = true; // Prima view (true)
   public showRegistrati: boolean = false;
   public showForgotPassword: boolean = false;
 

@@ -15,4 +15,6 @@ export class AuthService {
         this.isLoggedIn = true;
         this.router.navigate(['/home']);
     }
+
+    
 }

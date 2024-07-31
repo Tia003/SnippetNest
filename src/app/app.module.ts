@@ -74,7 +74,7 @@ import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/
     ModalModule,
     ClipboardModule,
     InputModule,
-    CheckboxModule
+    CheckboxModule,
   ],
   providers: [
     provideClientHydration(),
