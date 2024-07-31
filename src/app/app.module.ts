@@ -14,6 +14,7 @@ import { LoginComponent } from './Pages/Login/Login.component';
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
 import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
+import { UserComponent } from "./Widgets/User/User.component";
 
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
@@ -44,7 +45,8 @@ import { AuthService } from './Services/AuthService';
     TruncateString,
     SettingsComponent,
     ScrollOnTopPageComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
    ],
   imports: [
     BrowserModule,

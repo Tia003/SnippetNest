@@ -11,9 +11,10 @@ import { AuthService } from './Services/AuthService';
 export class AppComponent {
 
   title = 'SnippetNest';
-  isLoggedIn: any;
+  isUserLoggedIn: any;
   active: boolean = true;
   folders: Folder[] = [];
+  user: any;
 
   constructor(
     public service: Service, 
@@ -23,7 +24,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
-
+    this.isUserLoggedIn = this.authService.isUserLoggedIn();
+    if (this.isUserLoggedIn) {
+      this.user = this.authService.getUser();
+    }
   }
 
 }

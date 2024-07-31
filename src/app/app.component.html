@@ -33,7 +33,7 @@
         <cds-header-action description="Impostazioni" #sectionSettings>
           <img src="../assets/icons/settingsHeader.svg" width="21" height="21" alt="Icona">
         </cds-header-action>
-        <cds-header-action description="action">
+        <cds-header-action description="action" #sectionUser>
           <img src="../assets/icons/userProfile.svg" width="21" height="21" alt="Icona">
         </cds-header-action>
       </cds-header-global>
@@ -61,13 +61,19 @@
           <cds-sidenav-item [active]="true">Link</cds-sidenav-item>
           <cds-sidenav-item>Link</cds-sidenav-item>
       </cds-sidenav-menu> -->
-  </cds-sidenav>
+    </cds-sidenav>
 
-  <!-- SEZIONI ESPANDIBILI DA DESTRA -->
-  <!-- sectionSettings.active -->
-  <cds-panel [expanded]="sectionSettings.active">
-    <app-Settings></app-Settings>
-  </cds-panel>
+    <!-- SEZIONI ESPANDIBILI DA DESTRA -->
+    <!-- sectionSettings.active -->
+
+    <cds-panel [expanded]="sectionUser.active">
+      <app-User></app-User>
+    </cds-panel>
+
+    <cds-panel [expanded]="sectionSettings.active">
+      <app-Settings></app-Settings>
+    </cds-panel>
+
   </div>
 
   <div class="router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet--shifted': active}">
