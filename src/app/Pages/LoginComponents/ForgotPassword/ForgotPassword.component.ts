@@ -1,3 +1,4 @@
+import { AuthService } from './../../../Services/AuthService';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ForgotPassword.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  
+  constructor(
+    public authService: AuthService,
+  ) { }
 
-  constructor() { }
+  isLoading: boolean = true;
 
   ngOnInit() {
   }
