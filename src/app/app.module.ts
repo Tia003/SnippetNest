@@ -1,3 +1,4 @@
+// Angular imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideClientHydration } from '@angular/platform-browser';
@@ -5,16 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
-
-//Pages
-import { HomeComponent } from './Pages/Home/Home.component';
-import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
-import { LoginComponent } from './Pages/Login/Login.component';
-
-//Widgets
-import { SettingsComponent } from './Widgets/Settings/Settings.component';
-import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
-import { UserComponent } from "./Widgets/User/User.component";
 
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
@@ -37,6 +28,18 @@ import { Service } from './Services/service';
 import { TruncateString } from './truncateString.pipe';
 import { AuthService } from './Services/AuthService';
 
+//Widgets
+import { SettingsComponent } from './Widgets/Settings/Settings.component';
+import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
+
+//Pages
+import { HomeComponent } from './Pages/Home/Home.component';
+import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
+import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.component';
+import { AccediComponent } from './Pages/LoginComponents/Accedi/Accedi.component';
+import { RegistratiComponent } from './Pages/LoginComponents/Registrati/Registrati.component';
+import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/ForgotPassword.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +49,9 @@ import { AuthService } from './Services/AuthService';
     SettingsComponent,
     ScrollOnTopPageComponent,
     LoginComponent,
-    UserComponent
+    AccediComponent,
+    RegistratiComponent,
+    ForgotPasswordComponent
    ],
   imports: [
     BrowserModule,

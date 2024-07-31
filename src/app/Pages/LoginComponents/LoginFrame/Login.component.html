@@ -1,0 +1,69 @@
+<div class="container-global">
+  <div class="container-welcome">
+    <span class="title-lg">Accedi</span>
+  </div>
+  <div class="card" cdsTheme="g90">
+
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+
+      <!-- LOGO -->
+
+      <div class="container-logo mb-1">
+        <div class="flexColumn align-center gap-5">
+          <img src="../../../assets/icons/iconSneppet.svg" width="70" height="70" alt="Icona" id="logo" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+          <span id="title-logo">SnippetNest</span>
+        </div>
+      </div>
+
+      <!-- BUTTON TYPE LOGIN -->
+
+      <div class="container-button-login-type">
+
+        <!-- LOGIN GOOGLE -->
+        <button
+          cdsButton="secondary"
+          size="sm"
+          [isExpressive]="false"
+          >
+          <b>Accedi con Google</b>
+        </button>
+
+        <!-- LOGIN APPLE -->
+        <button
+          cdsButton="secondary"
+          size="sm"
+          style="width: 198px !important;"
+          [isExpressive]="false"
+          >
+          <b>Accedi con Apple</b>
+        </button>
+
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="container-divider">
+        <hr class="divider">
+        <span>OR</span>
+        <hr class="divider">
+      </div>
+
+      <!-- ACCEDI -->
+      <div *ngIf="showAccedi">
+        <app-Accedi></app-Accedi>
+      </div>
+
+      <!-- FORGOT PASSWORD -->
+       <div *ngIf="showRegistrati">
+        <app-ForgotPassword></app-ForgotPassword>
+       </div>
+
+      <!-- REGISTRATI -->
+      <div *ngIf="showForgotPassword">
+        <app-Registrati></app-Registrati>
+      </div>  
+
+    </div>
+    
+
+  </div>
+</div>
