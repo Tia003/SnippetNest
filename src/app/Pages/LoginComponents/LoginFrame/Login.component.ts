@@ -34,6 +34,12 @@ export class LoginComponent implements OnInit {
     this.showRegistrati = false;
   }
 
+  public onShowRegistrati(){
+    this.showRegistrati =!this.showRegistrati;
+    this.showAccedi = false;
+    this.showForgotPassword = false;
+  }
+
   public OnshowAccedi(){
     this.showAccedi = !this.showAccedi;
     this.showForgotPassword = false;

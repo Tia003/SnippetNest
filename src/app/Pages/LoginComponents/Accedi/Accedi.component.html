@@ -12,6 +12,7 @@
         cdsText
         type="email"
         size="md"
+        autocomplete="email"
         theme="dark"
         formControlName="email"
         placeholder="Inserisci la tua email">
@@ -23,6 +24,7 @@
     Password
     <input
       cdsPassword
+      autocomplete="new-password"
       type="password"
       size="md"
       theme="dark"
@@ -71,6 +73,6 @@
 
   <div class="container-registrati-link">
     <span>Non hai ancora un account?</span>
-    <span id="registratiLinkButton">Registrati</span>
+    <span id="registratiLinkButton" (click)="loginComponent.onShowRegistrati()">Registrati</span>
   </div>
 </div>

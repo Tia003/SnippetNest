@@ -13,6 +13,10 @@
   color: white;
 }
 
+.width-100{
+  width: 100% !important;
+}
+
 .title-lg{
   font-size: 29px;
   font-weight: 600;
@@ -118,4 +122,39 @@ fieldset {
 
 .direction-column{
   flex-direction: column !important;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+cds-toast {
+  position: absolute !important;
+  right: 0 !important;
+  margin: 12px !important;
+  z-index: 10000 !important;
+  opacity: 0;
+  animation: slideIn 0.4s forwards;
+}
+
+cds-toast.hide {
+  animation: slideOut 0.4s forwards;
 }

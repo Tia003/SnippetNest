@@ -56,6 +56,7 @@
           cdsButton="ghost"
           size="md"
           [isExpressive]="false"
+          (click)="ShowNewRepositoryModal = true;"
           >
           <img src="../assets/icons/folderAdd.svg" width="16" height="16" alt="Icona">
           <span style="margin-left: 10px;" *ngIf="active">Nuova repository</span>
@@ -84,6 +85,8 @@
   </div>
 
   <div class="router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet--shifted': active}">
+    <app-NewRepository *ngIf="ShowNewRepositoryModal"></app-NewRepository>
+    <app-SnackBar [hidden]="!isSnackBarVisible" [notifica]="notificaObj"></app-SnackBar>
     <router-outlet></router-outlet>
   </div>
 

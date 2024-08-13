@@ -1,0 +1,60 @@
+.container-registrati-link{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+#AccediLinkButton{
+    color: #0F62FE;
+}
+
+#AccediLinkButton:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container-login-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button-login{
+    width: 100%;
+}
+
+button#button-login{
+    max-inline-size: none;
+    display: flex;
+    justify-content: center;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+:host ::ng-deep .tooltip-trigger {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: #393939;
+    border: 1px solid var(--cds-border-subtle);
+    cursor: pointer;
+}
+svg { fill: var(--cds-background-inverse); }
+
+span.cds--popover-content.cds--tooltip-content{
+    background-color: #393939 !important;
+}
+
+.label-info{
+    font-size: 12px;
+    color: #C6C6C6;
+}

@@ -1,5 +1,5 @@
 // Angular imports
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,16 +23,20 @@ import { TilesModule } from 'carbon-components-angular';
 import { ModalModule } from 'carbon-components-angular'
 import { InputModule } from 'carbon-components-angular';
 import { CheckboxModule } from 'carbon-components-angular';
+import { TooltipModule } from 'carbon-components-angular';
+import { NotificationModule } from 'carbon-components-angular';
 
 //Services
 import { Service } from './Services/service';
 import { TruncateString } from './truncateString.pipe';
 import { AuthService } from './Services/AuthService';
+import { SnackBarService } from './Services/SnackBar.service';
 
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
 import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
 import { UserComponent } from './Widgets/User/User.component';
+import { SnackBarComponent } from './Widgets/SnackBar/SnackBar.component';
 
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
@@ -41,6 +45,9 @@ import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.compone
 import { AccediComponent } from './Pages/LoginComponents/Accedi/Accedi.component';
 import { RegistratiComponent } from './Pages/LoginComponents/Registrati/Registrati.component';
 import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/ForgotPassword.component';
+
+// Dialog
+import { NewRepositoryComponent } from './Dialog/NewRepository/NewRepository.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +61,9 @@ import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/
     AccediComponent,
     RegistratiComponent,
     ForgotPasswordComponent,
-    UserComponent
+    UserComponent,
+    SnackBarComponent,
+    NewRepositoryComponent
    ],
   imports: [
     BrowserModule,
@@ -79,12 +88,16 @@ import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/
     ClipboardModule,
     InputModule,
     CheckboxModule,
+    TooltipModule,
+    NotificationModule,
   ],
   providers: [
     provideClientHydration(),
     Service,
-    AuthService
+    AuthService,
+    SnackBarService,
   ],
+  schemas: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

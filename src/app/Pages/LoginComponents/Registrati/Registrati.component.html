@@ -1,3 +1,93 @@
-<p>
-  Registrati works!
-</p>
+<div style="display: flex; flex-direction: column; gap: 18px;">
+
+  <!-- FORM REGISTRAZIONE -->
+  <form [formGroup]="userRegisterForm" class="container-form">
+
+    <div class="flex gap-8">
+      <cds-text-label
+        [invalid]="userRegisterForm.touched && !userRegisterForm.get('name')!.valid"
+        invalidText="Il nome è obbligatorio">
+        Nome
+        <input
+          cdsText
+          type="email"
+          size="md"
+          theme="dark"
+          formControlName="name"
+          placeholder="Inserisci il tuo nome">
+      </cds-text-label>
+
+      <cds-text-label
+        [invalid]="userRegisterForm.touched && !userRegisterForm.get('surname')!.valid"
+        invalidText="Il cognome è obbligatorio">
+        Cognome
+        <input
+          cdsText
+          type="email"
+          size="md"
+          theme="dark"
+          formControlName="surname"
+          placeholder="Inserisci il tuo cognome">
+      </cds-text-label>
+    </div>
+
+    <cds-text-label
+      [invalid]="userRegisterForm.touched && !userRegisterForm.get('email')!.valid"
+      [invalidText]="EmailInvalidText">
+      Email
+      <input
+        cdsText
+        type="email"
+        size="md"
+        theme="dark"
+        formControlName="email"
+        placeholder="Inserisci la tua email">
+    </cds-text-label>
+
+    <cds-password-label
+      [invalid]="userRegisterForm.touched && !userRegisterForm.get('password')!.valid"
+      invalidText="La password è obbligatoria">
+      Password
+      <input
+        cdsPassword
+        type="password"
+        size="md"
+        theme="dark"
+        formControlName="password"
+        placeholder="Inserisci la tua password">
+    </cds-password-label>
+
+    <cds-password-label
+      [invalid]="userRegisterForm.touched && !userRegisterForm.get('confirmPassword')!.valid"
+      [invalidText]="invalidTextConfirmPassword">
+      Conferma Password
+      <input
+        cdsPassword
+        type="password"
+        size="md"
+        theme="dark"
+        formControlName="confirmPassword"
+        placeholder="Inserisci la conferma della password">
+    </cds-password-label>
+  </form>
+
+  <div class="container-login-button">
+    <button
+      style="display: flex; align-items: center;"
+      id="button-login"
+      cdsButton="primary"
+      type="button"
+      size="md"
+      [isExpressive]="false"
+      (click)="Registrati()"
+      >
+      <span style="margin-left: 40px;">Registrati</span>
+    </button>
+  </div>
+
+  <div class="container-registrati-link">
+    <span>Hai già un account?</span>
+    <span id="AccediLinkButton" (click)="loginComponent.OnshowAccedi()">Accedi</span>
+  </div>
+
+</div>

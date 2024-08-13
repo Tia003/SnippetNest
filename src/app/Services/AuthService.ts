@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { SnackBarService } from './SnackBar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private snackBarService: SnackBarService,
   ) { }
 
   isLoggedIn: boolean = false;
@@ -19,6 +21,14 @@ export class AuthService {
     
     // Save user information
     this.saveUser(user);
+
+    var Notifica = this.snackBarService.GetSuccessObj('Accesso effettuato', 'Benvenuto! Goditi la tua esperienza su SnippetNest', '');
+
+    // Refresh notifica 
+    this.snackBarService.refresh(Notifica);
+
+    // Show the snackbar
+    this.snackBarService.show();
 
     this.router.navigate(['/home']);
   }
