@@ -2,49 +2,54 @@
 
   <!-- FORM LOGIN -->
 
-  <div class="container-form">
+  <form [formGroup]="userForm" class="container-form">
 
     <cds-text-label
-    [invalid]="false"
-    invalidText="invalidText">
+    [invalid]="userForm.touched && !userForm.get('email')!.valid"
+    [invalidText]="EmailInvalidText">
     Email
     <input
         cdsText
+        type="email"
         size="md"
         theme="dark"
+        formControlName="email"
         placeholder="Inserisci la tua email">
     </cds-text-label>
 
     <cds-password-label
-    [invalid]="false"
-    invalidText="invalidText">
+    [invalid]="userForm.touched && !userForm.get('password')!.valid"
+    invalidText="La password è obbligatoria">
     Password
     <input
       cdsPassword
       type="password"
       size="md"
       theme="dark"
+      formControlName="password"
       placeholder="Inserisci la tua password">
     </cds-password-label>
 
-  </div>
+    <!-- REMEMBER ME & FORGOT PASSWORD -->
 
-  <!-- REMEMBER ME & FORGOT PASSWORD -->
+    <div class="container-remember-forgot">
+      <div>
+        <cds-checkbox
+          [indeterminate]="false"
+          formControlName="keepConnect"
+          [hideLabel]="false"
+        >
+          Resta connesso
+        </cds-checkbox>
+      </div>
+      <div>
+        <span id="forgonLink" (click)="loginComponent.OnshowForgotPassword()">Password dimenticata?</span>
+      </div>
+    </div>
 
-  <div class="container-remember-forgot">
-    <div>
-      <cds-checkbox
-        [indeterminate]="false"
-        [checked]="keepConnectCheck"
-        [hideLabel]="false"
-      >
-        Resta connesso
-      </cds-checkbox>
-    </div>
-    <div>
-      <span id="forgonLink" (click)="loginComponent.OnshowForgotPassword()">Password dimenticata?</span>
-    </div>
-  </div>
+  </form>
+
+  
 
   <!-- LOGIN BUTTON -->
 
@@ -56,7 +61,7 @@
       type="button"
       size="md"
       [isExpressive]="false"
-      (click)="authService.login()"
+      (click)="Login()"
       >
       <span style="margin-left: 40px;">Accedi</span>
     </button>

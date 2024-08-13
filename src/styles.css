@@ -71,6 +71,9 @@ button.cds--btn.cds--btn--primary.cds--btn--sm.cds--layout--size-sm{
   align-items: flex-start;
 }
 
+.gap-3{
+  gap: 3px;
+}
 
 .gap-5{
   gap: 5px;
@@ -99,4 +102,20 @@ fieldset {
 
 .mb-1{
   margin-bottom: 10px;
+}
+
+.avatar {
+  width: 100px; /* Larghezza dell'avatar */
+  height: 100px; /* Altezza dell'avatar */
+  border-radius: 50%; /* Rende l'immagine rotonda */
+  border: 2px solid #0f62fe; /* Bordo attorno all'immagine */
+  object-fit: cover; /* Garantisce che l'immagine copra l'intera area */
+}
+
+.flex{
+  display: flex !important;
+}
+
+.direction-column{
+  flex-direction: column !important;
 }

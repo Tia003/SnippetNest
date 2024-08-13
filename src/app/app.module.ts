@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Carbon imports
 import { UIShellModule, ButtonModule, ThemeModule, IconModule } from 'carbon-components-angular';
@@ -31,6 +32,7 @@ import { AuthService } from './Services/AuthService';
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
 import { ScrollOnTopPageComponent } from './Widgets/scrollOnTopPage/scrollOnTopPage.component';
+import { UserComponent } from './Widgets/User/User.component';
 
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
@@ -51,11 +53,13 @@ import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/
     LoginComponent,
     AccediComponent,
     RegistratiComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    UserComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     UIShellModule,
     ButtonModule,
     ThemeModule,

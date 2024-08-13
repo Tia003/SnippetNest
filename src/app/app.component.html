@@ -6,7 +6,7 @@
 
 <!-- SEZIONE MENU - LOGGED IN -->
 
-<div class="container-global" *ngIf="authService.isLoggedIn">
+<div class="container-global" *ngIf="authService.IsUserLoggedIn()">
   <div class="container-header" cdsTheme="g100">
     <cds-header [name]="title" brand="">
       <cds-hamburger *ngIf="true" [active]="active" (selected)="active = !active"></cds-hamburger>
@@ -33,9 +33,21 @@
         <cds-header-action description="Impostazioni" #sectionSettings>
           <img src="../assets/icons/settingsHeader.svg" width="21" height="21" alt="Icona">
         </cds-header-action>
-        <cds-header-action description="action" #sectionUser>
-          <img src="../assets/icons/userProfile.svg" width="21" height="21" alt="Icona">
-        </cds-header-action>
+
+        <!-- BOTTONE MOD E DELETE IN ICON BUTTON QUANDO IL DETAIL E' DISABILITATO -->
+        <cds-overflow-menu [flip]="true" class="menu-button">
+          <cds-overflow-menu-option class="color-item-menu-list" (click)="GoToUserPage()">
+            <div class="container-icon-label">
+              <b>Account</b>
+            </div>
+          </cds-overflow-menu-option>
+          <cds-overflow-menu-option type="danger" class="color-item-menu-list" (click)="authService.logout()" (mouseover)="onButtonDeleteOver()" (mouseout)="onButtonDeleteOut()">
+            <div class="container-icon-label">
+              <b>Disconnetti</b>
+            </div>
+          </cds-overflow-menu-option>
+        </cds-overflow-menu>
+
       </cds-header-global>
     </cds-header>
     <cds-sidenav [expanded]="active" style="margin-top: 3rem;">
@@ -64,11 +76,6 @@
     </cds-sidenav>
 
     <!-- SEZIONI ESPANDIBILI DA DESTRA -->
-    <!-- sectionSettings.active -->
-
-    <cds-panel [expanded]="sectionUser.active">
-      <app-User></app-User>
-    </cds-panel>
 
     <cds-panel [expanded]="sectionSettings.active">
       <app-Settings></app-Settings>

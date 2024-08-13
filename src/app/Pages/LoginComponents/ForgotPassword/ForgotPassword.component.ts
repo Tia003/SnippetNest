@@ -1,3 +1,4 @@
+import { LoginComponent } from '../LoginFrame/Login.component';
 import { AuthService } from './../../../Services/AuthService';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,6 +11,7 @@ export class ForgotPasswordComponent implements OnInit {
   
   constructor(
     public authService: AuthService,
+    public loginComponent: LoginComponent // Use the imported LoginComponent
   ) { }
 
   isLoading: boolean = true;

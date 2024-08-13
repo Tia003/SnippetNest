@@ -1,0 +1,55 @@
+.container-global{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+.container-avatar-info-user{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.label{
+    font-weight: bold;
+}
+
+.container-icon-label-avatar {
+    display: flex;
+    gap: 5px;
+    align-items: center; /* Per allineare verticalmente l'icona e il testo */
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    width: fit-content; /* Si adatta alla larghezza dell'immagine */
+}
+
+.avatar-wrapper:hover{
+    cursor: pointer !important;
+}
+
+.edit-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 13px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px 4px;
+    border-radius: 3px;
+    opacity: 0; /* Nasconde il testo inizialmente */
+    transition: opacity 0.3s ease;
+}
+
+.avatar-wrapper:hover .avatar {
+    opacity: 0.5;
+}
+
+.avatar-wrapper:hover .edit-label {
+    opacity: 1;
+}

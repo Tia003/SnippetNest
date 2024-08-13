@@ -29,8 +29,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   public OnshowForgotPassword(){
-    this.showForgotPassword = !this.showForgotPassword;
+    this.showForgotPassword =! this.showForgotPassword;
     this.showAccedi = false;
+    this.showRegistrati = false;
+  }
+
+  public OnshowAccedi(){
+    this.showAccedi = !this.showAccedi;
+    this.showForgotPassword = false;
     this.showRegistrati = false;
   }
 
