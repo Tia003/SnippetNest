@@ -21,7 +21,8 @@ export class Service {
     {
       id: 12,
       icon: 'folder',
-      name: 'HTML/CSS',
+      nome: 'HTML/CSS',
+      descrizione: 'HTML (HyperText Markup Language) è un linguaggio di markup utilizzato per creare pagine web. Il suo scopo è di descrivere la struttura e l\'estetica di una pagina web, nonché di fornire il codice necessario per visualizzarla nel browser. HTML è una tecnologia open-source, sviluppata da Microsoft e sviluppata da W3C.',
       dataCreazione: '2024-06-04T19:38:18Z',
       dataModifica: '2024-06-04T19:38:18Z',
       snippets: [
@@ -86,7 +87,8 @@ export class Service {
       ]
     },
     {
-      name: 'Flutter',
+      nome: 'Flutter',
+      descrizione: 'Flutter is a mobile app development framework by Google that enables developers to build high-quality, natively compiled applications for iOS, Android, macOS, Windows, Linux, and Web from a single codebase.',
       id: 13,
       icon: 'folder',
       dataCreazione: '2024-06-04T19:38:18Z',
@@ -94,7 +96,8 @@ export class Service {
       snippets: null,
     },
     {
-      name: 'Web Development',
+      nome: 'Web Development',
+      descrizione: 'Web Development is the most popular programming language in the world and provides a variety of programming languages',
       id: 14,
       icon: 'folder',
       dataCreazione: '2024-06-04T19:38:18Z',

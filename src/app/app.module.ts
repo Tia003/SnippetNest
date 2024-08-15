@@ -31,6 +31,7 @@ import { Service } from './Services/service';
 import { TruncateString } from './truncateString.pipe';
 import { AuthService } from './Services/AuthService';
 import { SnackBarService } from './Services/SnackBar.service';
+import { DialogService } from './Services/Dialog.service';
 
 //Widgets
 import { SettingsComponent } from './Widgets/Settings/Settings.component';
@@ -45,9 +46,10 @@ import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.compone
 import { AccediComponent } from './Pages/LoginComponents/Accedi/Accedi.component';
 import { RegistratiComponent } from './Pages/LoginComponents/Registrati/Registrati.component';
 import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/ForgotPassword.component';
+import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.component';
 
 // Dialog
-import { NewRepositoryComponent } from './Dialog/NewRepository/NewRepository.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,7 @@ import { NewRepositoryComponent } from './Dialog/NewRepository/NewRepository.com
     ForgotPasswordComponent,
     UserComponent,
     SnackBarComponent,
-    NewRepositoryComponent
+    NewRepositoryComponent,
    ],
   imports: [
     BrowserModule,
@@ -96,6 +98,7 @@ import { NewRepositoryComponent } from './Dialog/NewRepository/NewRepository.com
     Service,
     AuthService,
     SnackBarService,
+    DialogService
   ],
   schemas: [],
   bootstrap: [AppComponent]

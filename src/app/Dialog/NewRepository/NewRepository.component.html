@@ -1,26 +1,26 @@
 <cds-modal 
-			size="sm"
-			[open]="true"
-			(overlaySelected)="closeModal()">
-			<cds-modal-header (closeSelect)="closeModal()">
-				<h3 cdsModalHeaderHeading>Nuova repository</h3>
-			</cds-modal-header>
-			<section cdsModalContent [hasForm]="true">
-				<h1 cdsModalContentText class="cds--modal-content__regular-content modal-text">
-					Inserisci le informazioni richieste per la creazione di una nuova repository
-				</h1>
-				<div class="cds--text-input__field-wrapper">
-					<cds-label helperText="Helper text">
-						CIAO
-						<input
-							cdsText
-							placeholder="Placeholder"
-							[autocomplete]="false">
-					</cds-label>
-				</div>
-			</section>
-			<cds-modal-footer>
-				<button class="cds--btn cds--btn--secondary" (click)="closeModal()">Annulla</button>
-				<button class="cds--btn cds--btn--primary" modal-primary-focus (click)="closeModal()">Crea repository</button>
-			</cds-modal-footer>
-		</cds-modal>
+	size="sm"
+	[open]="true"
+	(overlaySelected)="closeModal()">
+	<cds-modal-header (closeSelect)="closeModal()">
+		<h3 cdsModalHeaderHeading>Nuova repository</h3>
+	</cds-modal-header>
+	<section cdsModalContent [hasForm]="true">
+		<h1 cdsModalContentText class="cds--modal-content__regular-content modal-text">
+			Inserisci le informazioni richieste per la creazione di una nuova repository
+		</h1>
+		<div class="cds--text-input__field-wrapper">
+			<cds-label helperText="Helper text">
+				CIAO
+				<input
+					cdsText
+					placeholder="Placeholder"
+					[autocomplete]="false">
+			</cds-label>
+		</div>
+	</section>
+	<cds-modal-footer>
+		<button class="cds--btn cds--btn--secondary" (click)="closeModal()">Annulla</button>
+		<button class="cds--btn cds--btn--primary" modal-primary-focus (click)="AddRepository()">Crea repository</button>
+	</cds-modal-footer>
+</cds-modal>

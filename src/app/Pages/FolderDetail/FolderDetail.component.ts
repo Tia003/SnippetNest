@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/
 import { ActivatedRoute } from '@angular/router';
 import { Folder } from '../../Modules/Folder';
 import { SnippetContent } from '../../Modules/SnippetContent';
-import { SnippetsType } from '../../SnippetsType.enum';
+import { SnippetsType } from '../../Enum/SnippetsType.enum';
 import { Snippet } from '../../Modules/Snippet';
 import { SnippetType } from 'carbon-components-angular';
 import { ClipboardService } from 'ngx-clipboard';
@@ -39,7 +39,8 @@ export class FolderDetailComponent implements OnInit {
   folder: Folder = {
       "id": 12,
       "icon": "folder",
-      "name": "HTML/CSS",
+      "nome": "HTML/CSS",
+      "descrizione": "HTML (HyperText Markup Language) è un linguaggio di markup utilizzato per creare pagine web. Il suo scopo è di descrivere la struttura e l'estetica di una pagina web, nonché di fornire il codice necessario per visualizzarla nel browser. HTML è una tecnologia open-source, sviluppata da Microsoft e sviluppata da W3C.",
       "dataCreazione": "2024-06-04T19:38:18Z",
       "dataModifica": "2024-06-06T10:15:42Z",
       "snippets": [

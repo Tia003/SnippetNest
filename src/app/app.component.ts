@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { SnackBarComponent } from './Widgets/SnackBar/SnackBar.component';
 import { SnackBarService } from './Services/SnackBar.service';
 import { ToastContent } from 'carbon-components-angular';
+import { DialogService } from './Services/Dialog.service';
+import { MenuService } from './Services/Menu.service';
 
 @Component({
   selector: 'app-root',
@@ -19,19 +21,21 @@ export class AppComponent implements OnInit {
     public authService: AuthService,
     public SnackBarService: SnackBarService,
     public SnackBarComponent: SnackBarComponent,
-    private router: Router
+    private router: Router,
+    public DialogService: DialogService,
+    public MenuService: MenuService,
   ) {
     this.folders = service.getListFolders();
   }
 
   title = 'SnippetNest';
   isUserLoggedIn: any;
-  active: boolean = true;
+  active!: boolean;
   folders: Folder[] = [];
   user: any;
 
   // boolean flag for snackbar visibility
-  isSnackBarVisible: boolean = false;
+  isSnackBarVisible!: boolean;
 
   // boolean for show modal new repository
   ShowNewRepositoryModal: boolean = false;
@@ -41,28 +45,47 @@ export class AppComponent implements OnInit {
   pathIconDeleteWhite: string = '../../../assets/icons/deleteWhite.svg';
   currentPathIconDelete: string = this.pathIconDeleteBlack;
 
-  notificaObj!: ToastContent;
+  notificaObj: any = {};
 
   ngOnInit() {
 
-    this.isUserLoggedIn = this.authService.isLoggedIn
+    this.isUserLoggedIn = this.authService.isLoggedIn;
 
     this.SnackBarService.showSnackBar$.subscribe(() => this.isSnackBarVisible = true);
     this.SnackBarService.hideSnackBar$.subscribe(() => this.isSnackBarVisible = false);
     
     this.SnackBarService.refreshSnackBar$.subscribe((notifica: ToastContent) => this.notificaObj = notifica);
+
+    // Iscriviti all'observable del dialog NewRepository e aggiorna lo stato locale in base ai cambiamenti
+    this.DialogService.visibility$.subscribe(visible => {
+      this.ShowNewRepositoryModal = visible;
+    });
+
+    // Iscriviti all'observable del menu e aggiorna lo stato locale in base ai cambiamenti
+    this.MenuService.visibility$.subscribe(visible => {
+      this.active = visible;
+    });
   }
 
-  GoToUserPage(){
+  toggleMenu() {
+    this.active = !this.active;
+  }
+
+  GoToUserPage() {
     this.router.navigate(['/user']);
   }
 
-  onButtonDeleteOver(){
+  onButtonDeleteOver() {
     this.currentPathIconDelete = this.pathIconDeleteWhite;
   }
 
-  onButtonDeleteOut(){
+  onButtonDeleteOut() {
     this.currentPathIconDelete = this.pathIconDeleteBlack;
   }
 
+  GetActiveMenu(){
+    return this.active
+  }
 }
+
+

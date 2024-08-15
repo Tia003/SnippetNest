@@ -4,6 +4,7 @@ import { HomeComponent } from './Pages/Home/Home.component';
 import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
 import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.component';
 import { UserComponent } from './Widgets/User/User.component';
+import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'folderDetail/:id', component: FolderDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent },
+  { path: 'NewRepository', component: NewRepositoryComponent },
 ];
 
 @NgModule({
@@ -18,4 +20,5 @@ const routes: Routes = [
   exports: [RouterModule],
    declarations: [ ]
 })
+
 export class AppRoutingModule { }

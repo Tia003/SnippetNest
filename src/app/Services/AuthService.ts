@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { SnackBarService } from './SnackBar.service';
+import { SnackBarType } from '../Enum/SnackBarType.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
     // Save user information
     this.saveUser(user);
 
-    var Notifica = this.snackBarService.GetSuccessObj('Accesso effettuato', 'Benvenuto! Goditi la tua esperienza su SnippetNest', '');
+    var Notifica = this.snackBarService.GetSuccessObj(SnackBarType.toast ,'Accesso effettuato', 'Benvenuto! Goditi la tua esperienza su SnippetNest', '');
 
     // Refresh notifica 
     this.snackBarService.refresh(Notifica);

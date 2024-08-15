@@ -20,7 +20,6 @@
 .container-label-title{
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .section-list-snippet-vertical{
@@ -92,6 +91,7 @@
 .container-title-card{
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .footer-card-snippet{

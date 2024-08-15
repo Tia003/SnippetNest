@@ -1,0 +1,103 @@
+<div class="container-global">
+
+  <!-- HEADER -->
+  <div class="flex flex-column gap-1">
+    <div class="container-icon-label gap-2">
+      <img src="../../../assets/icons/folderAdd.svg" alt="">
+      <span class="title-lg">Nuova repository</span>
+    </div>
+    <span class="cds--label-description">Crea e personalizza la tua repository, collabora con il tuo team e gestisci i tuoi progetti in modo efficace.</span>
+  </div>
+
+  <!-- FORM -->
+
+  <form [formGroup]="FormRepository" class="flex flex-column gap-3" style="width: 65%;">
+
+    
+    
+    <cds-text-label
+      [invalid]="FormRepository.get('nome')!.invalid && FormRepository.get('nome')!.touched"
+      invalidText="Il nome è obbligatorio">
+      Nome
+      <input
+        cdsText
+        class="w-100"
+        type="text"
+        size="md"
+        theme="dark"
+        formControlName="nome"
+        placeholder="Nome della repository">
+    </cds-text-label>
+
+    <div>
+      <cds-textarea-label
+        [invalid]="FormRepository.get('descrizione')!.invalid && FormRepository.get('descrizione')!.touched"
+        invalidText="La descrizione è obbligatoria">
+          Descrizione
+          <textarea
+            class="w-100"
+            cdsTextArea
+            size="md"
+            theme="dark"
+            rows="9"
+            [maxlength]="500"
+            formControlName="descrizione"
+            placeholder="Descrizione della repository"
+            (input)="updateCharCount()">
+          </textarea>
+      </cds-textarea-label>
+      <span class="cds--label-description">{{charCount}} / 500</span>
+    </div>
+
+    <div>
+      <div class="flex flex-row align-items-baseline">
+        <span class="cds--label">Collaboratori</span>
+        <cds-tooltip
+            [isOpen]="false"
+            [align]="'right'"
+            description="Gli utenti con cui è possibile collaborare, sono tutti quegli utenti con cui hai scambiato e accettato la collaborazione nella sezione 'Collaboratori'">
+            <span class="overflowText">
+              <i class="bi bi-info-circle"></i>
+            </span>
+        </cds-tooltip>
+      </div>
+      <cds-combo-box
+        placeholder="Cerca i collaboratori per la tua repository"
+        [(ngModel)]="searchText"
+        size="md"
+        [appendInline]="false"
+        [items]="CollaboratoriList"
+        [warn]="true"
+        warnText="Non hai ancora dei collaboratori per le tue repository"
+        [disabled]="true"
+        theme="dark"
+        style="width: 100%;"
+        (search)="onSearchChange($event)"
+      >
+        <cds-dropdown-list cdsTheme="g90"></cds-dropdown-list>
+      </cds-combo-box>
+    </div>
+
+    <div>
+      <span class="cds--label">Visibilità</span>
+      <cds-tile-group [multiple]="false" class="mt-1">
+        <cds-selection-tile value="tile1" [selected]="true">
+          <div class="container-flag-label">
+            <i class="bi bi-lock-fill fs-3"></i>
+            <span class="fw-bold">Privato</span>
+            <span class="cds--label-description">Solo tu e i tuoi collaboratori potrete vedere il contenuto della repository</span>
+          </div>
+        </cds-selection-tile>
+        <cds-selection-tile value="tile3">
+          <div class="container-flag-label">
+            <i class="bi bi-unlock-fill fs-3"></i>
+            <span class="fw-bold">Pubblico</span>
+            <span class="cds--label-description">Tutti coloro che avranno l'accesso a SnippetNest potranno leggere il contenuto della repository</span>
+          </div>
+        </cds-selection-tile>
+      </cds-tile-group>
+    </div>
+
+  </form>
+  
+</div>

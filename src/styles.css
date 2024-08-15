@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* @use '@carbon/colors'; */
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import "@carbon/styles/css/styles.css";
-
 
 .i-w {
   fill: white;
@@ -23,9 +23,14 @@
   color: white;
 }
 
+.cursor-pointer{
+  cursor: pointer !important; 
+}
+
 .container-icon-label{
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .cds--header-panel.cds--header-panel--expanded{
@@ -75,6 +80,10 @@ button.cds--btn.cds--btn--primary.cds--btn--sm.cds--layout--size-sm{
   align-items: flex-start;
 }
 
+ul {
+  padding-left: 0rem !important;
+}
+
 .gap-3{
   gap: 3px;
 }
@@ -112,7 +121,7 @@ fieldset {
   width: 100px; /* Larghezza dell'avatar */
   height: 100px; /* Altezza dell'avatar */
   border-radius: 50%; /* Rende l'immagine rotonda */
-  border: 2px solid #0f62fe; /* Bordo attorno all'immagine */
+  border: 2px solid white; /* Bordo attorno all'immagine */
   object-fit: cover; /* Garantisce che l'immagine copra l'intera area */
 }
 
@@ -156,5 +165,19 @@ cds-toast {
 }
 
 cds-toast.hide {
+  animation: slideOut 0.4s forwards;
+}
+
+cds-inline-notification {
+  position: absolute !important;
+  right: 0 !important;
+  margin: 12px !important;
+  z-index: 10000 !important;
+  opacity: 0;
+  max-width: 300px !important;
+  animation: slideIn 0.4s forwards;
+}
+
+cds-inline-notification.hide {
   animation: slideOut 0.4s forwards;
 }

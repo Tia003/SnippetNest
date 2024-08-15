@@ -17,17 +17,20 @@
   background-color: white;
 }
 
-.router-outlet {
+.container-router-outlet {
   padding-top: 48px;
-  margin-left: 48px;
   height: calc(100vh);
   overflow-y: auto;
   transition: margin-left 0.1s ease;
   transition: margin-left 0.1s ease-in;
 }
 
-.router-outlet--shifted {
-  margin-left: 256px; /* Move the element 40px to the left */
+.router-outlet-shifted {
+  margin-left: 256px !important; /* Move the element 40px to the left */
+}
+
+.router-outlet-not-shifted {
+  margin-left: 48px !important; /* Move the element 40px to the left */
 }
 
 .header-item{

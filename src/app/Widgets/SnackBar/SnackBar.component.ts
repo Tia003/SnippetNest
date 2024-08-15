@@ -1,6 +1,5 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
-import { SnackBarService } from '../../Services/SnackBar.service';
-import { ToastContent } from 'carbon-components-angular';
+import { SnackBarService } from '../../Services/SnackBar.service'
 
 @Component({
   selector: 'app-SnackBar',
@@ -14,7 +13,7 @@ import { ToastContent } from 'carbon-components-angular';
 
 export class SnackBarComponent implements OnInit {
 
-  @Input() notifica: any;
+  @Input() notifica: any = {};
 
   isVisible: boolean = true;
 
@@ -25,6 +24,10 @@ export class SnackBarComponent implements OnInit {
   ngOnInit() {
     this.snackBarService.showSnackBar$.subscribe(() => this.show());
     this.snackBarService.hideSnackBar$.subscribe(() => this.hide());
+
+    setTimeout(() => {
+      this.snackBarService.hide();
+    }, 5000);
   }
 
   show() {
@@ -33,7 +36,7 @@ export class SnackBarComponent implements OnInit {
   
     setTimeout(() => {
       this.snackBarService.hide();
-    }, 3000); // Toast disappears after 3 seconds
+    }, 4000); // Toast disappears after 3 seconds
   }
 
   hide() {

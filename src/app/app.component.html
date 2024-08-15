@@ -9,7 +9,8 @@
 <div class="container-global" *ngIf="authService.IsUserLoggedIn()">
   <div class="container-header" cdsTheme="g100">
     <cds-header [name]="title" brand="">
-      <cds-hamburger *ngIf="true" [active]="active" (selected)="active = !active"></cds-hamburger>
+      <cds-hamburger *ngIf="true" [active]="active" (selected)="MenuService.setVisibility(!active)"></cds-hamburger>
+
       <cds-header-navigation>
         <!-- <cds-header-item [routerLink]="['home']">
           <div class="header-item">
@@ -56,7 +57,7 @@
           cdsButton="ghost"
           size="md"
           [isExpressive]="false"
-          (click)="ShowNewRepositoryModal = true;"
+          [routerLink]="['NewRepository/']"
           >
           <img src="../assets/icons/folderAdd.svg" width="16" height="16" alt="Icona">
           <span style="margin-left: 10px;" *ngIf="active">Nuova repository</span>
@@ -66,7 +67,7 @@
       <hr >
       <cds-sidenav-item *ngFor="let folder of folders" [routerLink]="'folderDetail/' + folder.id">
           <svg [cdsIcon]="folder.icon" size="16"></svg>
-          {{folder.name}}
+          {{folder.nome}}
       </cds-sidenav-item>
       <!-- <cds-sidenav-menu title="Category title">
           <svg cdsIcon="fade" size="16"></svg>
@@ -84,8 +85,7 @@
 
   </div>
 
-  <div class="router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet--shifted': active}">
-    <app-NewRepository *ngIf="ShowNewRepositoryModal"></app-NewRepository>
+  <div class="container-router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet-shifted': active, 'router-outlet-not-shifted': !active}">
     <app-SnackBar [hidden]="!isSnackBarVisible" [notifica]="notificaObj"></app-SnackBar>
     <router-outlet></router-outlet>
   </div>

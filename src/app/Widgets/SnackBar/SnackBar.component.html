@@ -1,4 +1,17 @@
-<cds-toast
-  [ngClass]="{'hide': !isSnackVisible()}"
-  [notificationObj]="notifica">
-</cds-toast>
+<ng-container *ngIf="(notifica.type == 1); then ToastTemplate; else InlineTemplate"></ng-container>
+
+<ng-template #ToastTemplate>
+  <cds-toast
+    [ngClass]="{'hide': !isSnackVisible()}"
+    [notificationObj]="notifica.data">
+  </cds-toast>
+</ng-template>
+
+<ng-template #InlineTemplate>
+  <cds-inline-notification
+  [ngClass]="{'hide':!isSnackVisible()}"
+  [notificationObj]="notifica.data">
+  </cds-inline-notification>
+</ng-template>
+
+

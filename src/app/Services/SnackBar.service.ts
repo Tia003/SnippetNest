@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ToastContent } from 'carbon-components-angular';
 import { Subject } from 'rxjs';
+import { SnackBarType } from '../Enum/SnackBarType.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +27,14 @@ export class SnackBarService {
     this.refreshSnackBarSubject.next(notifica);
   }
 
-  hide() {
+  public hide() {
     this.hideSnackBarSubject.next();
   }
 
   // Metodi per return oggetto notifica in base ai casi
-  public GetSuccessObj(title: string, subtitle: string, caption: string): ToastContent {
+  public GetSuccessObj(type: SnackBarType , title: string, subtitle: string, caption: string): any {
 
-    var notifica: ToastContent = {
+    var data: ToastContent = {
       type: 'success',
       title: title,
       subtitle: subtitle,
@@ -42,12 +43,18 @@ export class SnackBarService {
       lowContrast: true,
       showClose: false,
     }
+
+    var notifica = {
+      type: type,
+      data: data
+    }
+
     return notifica
   }
 
-  public GetErrorObj(title: string, subtitle: string, caption: string): ToastContent {
+  public GetErrorObj(type: SnackBarType, title: string, subtitle: string, caption: string): any {
 
-    var notifica: ToastContent = {
+    var data: ToastContent = {
       type: 'error',
       title: title,
       subtitle: subtitle,
@@ -56,6 +63,12 @@ export class SnackBarService {
       lowContrast: true,
       showClose: false,
     }
+
+    var notifica = {
+      type: type,
+      data: data
+    }
+
     return notifica
   }
 }
