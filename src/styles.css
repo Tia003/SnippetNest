@@ -2,8 +2,11 @@
 /* @use '@carbon/colors'; */
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@carbon/styles/css/styles.css";
-@import "@carbon/charts/styles.css";
 
+.cds--cc--chart-wrapper {
+  --cds-charts-font-family: Roboto;
+  --cds-charts-font-family-condensed: 'Roboto Condensed';
+}
 
 .i-w {
   fill: white;

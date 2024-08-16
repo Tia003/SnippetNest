@@ -26,6 +26,10 @@ import { CheckboxModule } from 'carbon-components-angular';
 import { TooltipModule } from 'carbon-components-angular';
 import { NotificationModule } from 'carbon-components-angular';
 import { TabsModule } from 'carbon-components-angular';
+import { ContextMenuModule } from 'carbon-components-angular';
+
+// Charts Module
+import { ChartsModule } from '@carbon/charts-angular';
 
 //Services
 import { Service } from './Services/service';
@@ -53,7 +57,6 @@ import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.comp
 import { UtilizzoComponent } from './Pages/FolderDetailsComponents/Utilizzo/Utilizzo.component';
 
 // Dialog
-
 
 @NgModule({
   declarations: [
@@ -98,6 +101,7 @@ import { UtilizzoComponent } from './Pages/FolderDetailsComponents/Utilizzo/Util
     TooltipModule,
     NotificationModule,
     TabsModule,
+    ContextMenuModule
   ],
   providers: [
     provideClientHydration(),

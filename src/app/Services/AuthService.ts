@@ -42,7 +42,7 @@ export class AuthService {
   IsUserLoggedIn(): boolean {
 
     // Check if user is logged in
-    var user = sessionStorage.getItem('user');
+    var user = sessionStorage.getItem('user') ?? null;
 
     if (user == null) {
       this.isLoggedIn = false;

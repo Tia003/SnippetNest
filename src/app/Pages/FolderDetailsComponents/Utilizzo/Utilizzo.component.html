@@ -1,6 +1,19 @@
 <div>
-  <span>CIao 1</span>
-  <div class="w-100">
-    <ibm-heatmap-chart [data]="data" [options]="options"></ibm-heatmap-chart>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="flex flex-column">
+        <cds-tile #tile class="cursor-pointer">Collaboratori</cds-tile>
+        <cds-tile #tile class="cursor-pointer">Community feedback</cds-tile>
+        <cds-tile #tile class="cursor-pointer">Aggiornamenti</cds-tile>
+      </div>
+    </div>
+    <div class="col-lg-6 h-auto">
+      <div class="p-1">
+        <div class="container-icon-label">
+          <img src="../../../assets/icons/folderDetails.svg" width="28" height="28" alt="Icona">
+          <span class="title-lg">Contributo dei collaboratori</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
