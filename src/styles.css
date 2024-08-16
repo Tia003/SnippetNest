@@ -2,6 +2,8 @@
 /* @use '@carbon/colors'; */
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@carbon/styles/css/styles.css";
+@import "@carbon/charts/styles.css";
+
 
 .i-w {
   fill: white;

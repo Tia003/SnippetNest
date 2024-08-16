@@ -1,16 +1,17 @@
 import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Folder } from '../../Modules/Folder';
-import { SnippetContent } from '../../Modules/SnippetContent';
-import { SnippetsType } from '../../Enum/SnippetsType.enum';
-import { Snippet } from '../../Modules/Snippet';
+import { Folder } from '../../../Modules/Folder';
+import { SnippetContent } from '../../../Modules/SnippetContent';
+import { SnippetsType } from '../../../Enum/SnippetsType.enum';
+import { Snippet } from '../../../Modules/Snippet';
 import { SnippetType } from 'carbon-components-angular';
 import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-FolderDetail',
   templateUrl: './FolderDetail.component.html',
-  styleUrls: ['./FolderDetail.component.css']
+  styleUrls: ['./FolderDetail.component.css'],
+
 })
 export class FolderDetailComponent implements OnInit {
 

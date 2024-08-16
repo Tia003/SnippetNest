@@ -42,12 +42,15 @@ import { SnackBarComponent } from './Widgets/SnackBar/SnackBar.component';
 
 //Pages
 import { HomeComponent } from './Pages/Home/Home.component';
-import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
+import { FolderDetailComponent } from './Pages/FolderDetailsComponents/FolderDetail/FolderDetail.component';
 import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.component';
 import { AccediComponent } from './Pages/LoginComponents/Accedi/Accedi.component';
 import { RegistratiComponent } from './Pages/LoginComponents/Registrati/Registrati.component';
 import { ForgotPasswordComponent } from './Pages/LoginComponents/ForgotPassword/ForgotPassword.component';
 import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.component';
+
+// Folder details Components
+import { UtilizzoComponent } from './Pages/FolderDetailsComponents/Utilizzo/Utilizzo.component';
 
 // Dialog
 
@@ -67,6 +70,7 @@ import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.comp
     UserComponent,
     SnackBarComponent,
     NewRepositoryComponent,
+    UtilizzoComponent
    ],
   imports: [
     BrowserModule,
@@ -102,7 +106,7 @@ import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.comp
     SnackBarService,
     DialogService
   ],
-  schemas: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

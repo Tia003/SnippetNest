@@ -25,6 +25,51 @@ export class RegistratiComponent implements OnInit {
   // Strings for error messages (Password confirm field)
   invalidTextConfirmPassword: string = "";
 
+  // Lista nazioni
+  nazionalita = [
+    {
+      "content": "Australia",
+      "selected": false
+    },
+    {
+      "content": "Brazil",
+      "selected": false
+    },
+    {
+      "content": "Canada",
+      "selected": false
+    },
+    {
+      "content": "France",
+      "selected": false
+    },
+    {
+      "content": "Germany",
+      "selected": false
+    },
+    {
+      "content": "India",
+      "selected": false
+    },
+    {
+      "content": "Italy",
+      "selected": false
+    },
+    {
+      "content": "Japan",
+      "selected": false
+    },
+    {
+      "content": "Mexico",
+      "selected": false
+    },
+    {
+      "content": "South Africa",
+      "selected": false
+    }
+  ]
+  
+
   ngOnInit() {
 
     // Initiate the userRegisterForm
@@ -40,7 +85,8 @@ export class RegistratiComponent implements OnInit {
       surname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      nazionalita: ['', Validators.required]
     }, { validator: this.MustMatch('password', 'confirmPassword') });
     
   }

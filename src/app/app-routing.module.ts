@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Pages/Home/Home.component';
-import { FolderDetailComponent } from './Pages/FolderDetail/FolderDetail.component';
+import { FolderDetailComponent } from './Pages/FolderDetailsComponents/FolderDetail/FolderDetail.component';
 import { LoginComponent } from './Pages/LoginComponents/LoginFrame/Login.component';
 import { UserComponent } from './Widgets/User/User.component';
 import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.component';

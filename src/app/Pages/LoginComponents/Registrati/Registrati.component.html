@@ -69,6 +69,16 @@
         formControlName="confirmPassword"
         placeholder="Inserisci la conferma della password">
     </cds-password-label>
+
+    <cds-dropdown
+      [invalid]="userRegisterForm.touched && !userRegisterForm.get('nazionalita')!.valid"
+      invalidText="La nazionalità è obbligatoria"
+      label="Nazionalità"
+      size="md"
+      formControlName="nazionalita"
+      placeholder="Seleziona la tua nazionalità">
+      <cds-dropdown-list [items]="nazionalita" ></cds-dropdown-list>
+    </cds-dropdown>
   </form>
 
   <div class="container-login-button">

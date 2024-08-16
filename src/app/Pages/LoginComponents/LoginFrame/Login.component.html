@@ -1,6 +1,8 @@
 <div class="container-global">
   <div class="container-welcome">
-    <span class="title-lg">Accedi</span>
+    <span class="title-lg">
+      {{showAccedi ? "Accedi" : (showRegistrati) ? "Registrati" : "Opss..."}}
+    </span>
   </div>
   <div class="cardLogin" cdsTheme="g90">
 
