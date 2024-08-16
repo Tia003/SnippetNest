@@ -25,6 +25,7 @@ import { InputModule } from 'carbon-components-angular';
 import { CheckboxModule } from 'carbon-components-angular';
 import { TooltipModule } from 'carbon-components-angular';
 import { NotificationModule } from 'carbon-components-angular';
+import { TabsModule } from 'carbon-components-angular';
 
 //Services
 import { Service } from './Services/service';
@@ -92,6 +93,7 @@ import { NewRepositoryComponent } from './Pages/NewRepository/NewRepository.comp
     CheckboxModule,
     TooltipModule,
     NotificationModule,
+    TabsModule,
   ],
   providers: [
     provideClientHydration(),

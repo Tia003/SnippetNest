@@ -19,6 +19,7 @@
 
 .container-router-outlet {
   padding-top: 48px;
+  padding-left: 48px;
   height: calc(100vh);
   overflow-y: auto;
   transition: margin-left 0.1s ease;

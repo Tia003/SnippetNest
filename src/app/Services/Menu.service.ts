@@ -10,7 +10,7 @@ export class MenuService {
   // DIALOG NUOVA REPOSITORY
 
       // Definisci la variabile come un BehaviorSubject
-      private visibilityMenuSubject = new BehaviorSubject<boolean>(true);
+      private visibilityMenuSubject = new BehaviorSubject<boolean>(false);
 
       // Esponi l'observable per permettere al component di iscriversi ai cambiamenti
       visibility$ = this.visibilityMenuSubject.asObservable();

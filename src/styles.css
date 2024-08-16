@@ -181,3 +181,13 @@ cds-inline-notification {
 cds-inline-notification.hide {
   animation: slideOut 0.4s forwards;
 }
+
+.cds--tabs .cds--tabs__nav-link:focus, .cds--tabs .cds--tabs__nav-link:active{
+  outline: none !important;
+}
+
+.cds--tab-content{
+  padding: unset !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}

@@ -9,7 +9,7 @@
 <div class="container-global" *ngIf="authService.IsUserLoggedIn()">
   <div class="container-header" cdsTheme="g100">
     <cds-header [name]="title" brand="">
-      <cds-hamburger *ngIf="true" [active]="active" (selected)="MenuService.setVisibility(!active)"></cds-hamburger>
+      <cds-hamburger *ngIf="true" [active]="active"></cds-hamburger>
 
       <cds-header-navigation>
         <!-- <cds-header-item [routerLink]="['home']">
@@ -51,7 +51,10 @@
 
       </cds-header-global>
     </cds-header>
-    <cds-sidenav [expanded]="active" style="margin-top: 3rem;">
+    <cds-sidenav [expanded]="active" style="margin-top: 3rem;" 
+      (mouseenter)="MenuService.setVisibility(!this.active)" 
+      (mouseleave)="MenuService.setVisibility(!this.active)"
+    >
       <div class="container-button-add-repository">
         <button
           cdsButton="ghost"
@@ -85,7 +88,7 @@
 
   </div>
 
-  <div class="container-router-outlet" cdsTheme="g90" [ngClass]="{'router-outlet-shifted': active, 'router-outlet-not-shifted': !active}">
+  <div class="container-router-outlet" cdsTheme="g90">
     <app-SnackBar [hidden]="!isSnackBarVisible" [notifica]="notificaObj"></app-SnackBar>
     <router-outlet></router-outlet>
   </div>

@@ -67,6 +67,10 @@ export class AppComponent implements OnInit {
     });
   }
 
+  pp(){
+    this.MenuService.setVisibility(!this.active);
+  }
+
   toggleMenu() {
     this.active = !this.active;
   }

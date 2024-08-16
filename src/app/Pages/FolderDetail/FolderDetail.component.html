@@ -112,213 +112,261 @@
   
   </div>
 
+  <!-- DESCRIZIONE REPOSITORY -->
   <div>
     <span class="cds--label-description">{{folder.descrizione}}</span>
   </div>
 
-  <!-- SEZIONE DOPPIA VISUALIZZAZIONE -->
-  <div class="container-double-section">
+  <cds-tabs
+    type="line"
+    [cacheActive]="false"
+    [isNavigation]="true"
+    #tab>
+    <cds-tab [heading]="IconLabelTabSnippet"  [tabContent]="Snippets"></cds-tab>
+    <cds-tab [heading]="IconLabelTabCollaborazioni" [tabContent]="Collaborazioni"></cds-tab>
+    <cds-tab [heading]="IconLabelTabUtilizzo" [tabContent]="Utilizzo"></cds-tab>
+  </cds-tabs>
 
-    <!-- SEZIONE LISTA SNIPPET -->
-    <div [ngClass]="{
-        'section-list-snippet-vertical': showSectionDetails, 
-        'section-list-snippet-grid': (!showSectionDetails && globalContainer.offsetWidth > 1290),
-        'two-element-list-snippet-grid': (globalContainer.offsetWidth <= 1290 && !showSectionDetails)
-      }">
-      
-      <div class="snippet-card" *ngFor="let item of folderTemp.snippets">
+  <!-- SEZIONE HEADER DEI TABS (LABEL + ICONA) -->
+  <ng-template #IconLabelTabSnippet>
+    <div class="flex flex-row align-items-center gap-1">
+      <i class="bi bi-boxes"></i>
+      <span>Snippets</span>
+    </div>
+  </ng-template>
 
-        <div class="content-card-snippet">
-          <div class="container-header-card-snippet">
+  <ng-template #IconLabelTabCollaborazioni>
+    <div class="flex flex-row align-items-center gap-1">
+      <i class="bi bi-people"></i>
+      <span>Collaborazioni</span>
+    </div>
+  </ng-template>
 
-            <div class="container-title-and-action">
-              <div class="container-title-card">
-                <img src="../../../assets/icons/iconSneppet.svg" width="24" height="24" alt="Icona">
-                <span class="title">{{item.titolo}}</span>
-              </div>
-            </div>
+  <ng-template #IconLabelTabUtilizzo>
+    <div class="flex flex-row align-items-center gap-1">
+      <i class="bi bi-activity"></i>
+      <span>Utilizzo</span>
+    </div>
+  </ng-template>
 
-            <div class="container-tags">
-              <div *ngFor="let tag of item.tag">
-                <cds-tag [type]="tag.type" size="md">{{tag.label}}</cds-tag>
-              </div>
-            </div>
+  <!-- SEZIONE SNIPPETS -->
+  <ng-template #Snippets>
 
-          </div>
+    <!-- SEZIONE DOPPIA VISUALIZZAZIONE -->
+    <div class="container-double-section">
 
-          <div class="container-content-card-snippet">
-            <span>{{item.descrizione | TruncateString: 200}}</span>
-          </div>
+      <!-- SEZIONE LISTA SNIPPET -->
+      <div [ngClass]="{
+          'section-list-snippet-vertical': showSectionDetails, 
+          'section-list-snippet-grid': (!showSectionDetails && globalContainer.offsetWidth > 1290),
+          'two-element-list-snippet-grid': (globalContainer.offsetWidth <= 1290 && !showSectionDetails)
+        }">
+        
+        <div class="snippet-card" *ngFor="let item of folderTemp.snippets">
 
-        </div>
+          <div class="content-card-snippet">
+            <div class="container-header-card-snippet">
 
-
-        <div>
-
-          <div class="mt-1">
-            <div class="flexColumn gap-1">
-              <div class="container-icon-label align-center">
-                <img src="../../../assets/icons/circleFilledBlue.svg" width="12" height="12" alt="Icona">
-                <span>{{item.snippetDetails.length}} Snippet totali</span>
-              </div>
-              <div class="container-icon-label align-center">
-                <img src="../../../assets/icons/circleFilledYellow.svg" width="12" height="12" alt="Icona">
-                <span>Ultima modifica 2 min fa</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="footer-card-snippet">
-            <button
-              cdsButton="primary"
-              size="sm"
-              [isExpressive]="false"
-              (click)="showSnippetDetail(item)"
-              *ngIf="!showSectionDetails"
-              >
-              <b>Visualizza</b>
-            </button>
-
-            <!-- BOTTONE MOD E DELETE IN ICON BUTTON QUANDO IL DETAIL E' DISABILITATO -->
-            <cds-overflow-menu [flip]="true" *ngIf="!showSectionDetails">
-              <cds-overflow-menu-option class="color-item-menu-list">
-                <div class="container-icon-label">
-                  <img src="../../../assets/icons/spostaSnippetBlack.svg" width="18" height="18" alt="Icona">
-                  <b>Sposta</b>
+              <div class="container-title-and-action">
+                <div class="container-title-card">
+                  <img src="../../../assets/icons/iconSneppet.svg" width="24" height="24" alt="Icona">
+                  <span class="title">{{item.titolo}}</span>
                 </div>
-              </cds-overflow-menu-option>
-              <cds-overflow-menu-option class="color-item-menu-list">
+              </div>
+
+              <div class="container-tags">
+                <div *ngFor="let tag of item.tag">
+                  <cds-tag [type]="tag.type" size="md">{{tag.label}}</cds-tag>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="container-content-card-snippet">
+              <span>{{item.descrizione | TruncateString: 200}}</span>
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="mt-1">
+              <div class="flexColumn gap-1">
+                <div class="container-icon-label align-center">
+                  <img src="../../../assets/icons/circleFilledBlue.svg" width="12" height="12" alt="Icona">
+                  <span>{{item.snippetDetails.length}} Snippet totali</span>
+                </div>
+                <div class="container-icon-label align-center">
+                  <img src="../../../assets/icons/circleFilledYellow.svg" width="12" height="12" alt="Icona">
+                  <span>Ultima modifica 2 min fa</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="footer-card-snippet">
+              <button
+                cdsButton="primary"
+                size="sm"
+                [isExpressive]="false"
+                (click)="showSnippetDetail(item)"
+                *ngIf="!showSectionDetails"
+                >
+                <b>Visualizza</b>
+              </button>
+
+              <!-- BOTTONE MOD E DELETE IN ICON BUTTON QUANDO IL DETAIL E' DISABILITATO -->
+              <cds-overflow-menu [flip]="true" *ngIf="!showSectionDetails">
+                <cds-overflow-menu-option class="color-item-menu-list">
+                  <div class="container-icon-label">
+                    <img src="../../../assets/icons/spostaSnippetBlack.svg" width="18" height="18" alt="Icona">
+                    <b>Sposta</b>
+                  </div>
+                </cds-overflow-menu-option>
+                <cds-overflow-menu-option class="color-item-menu-list">
+                  <div class="container-icon-label">
+                    <img src="../../../assets/icons/editBlack.svg" width="18" height="18" alt="Icona">
+                    <b>Modifica</b>
+                  </div>
+                </cds-overflow-menu-option>
+                <cds-overflow-menu-option type="danger" class="color-item-menu-list" (mouseover)="onButtonDeleteOver()" (mouseout)="onButtonDeleteOut()">
+                  <div class="container-icon-label">
+                    <img [src]="currentPathIconDelete" width="18" height="18" alt="Icona">
+                    <b>Elimina</b>
+                  </div>
+                </cds-overflow-menu-option>
+              </cds-overflow-menu>
+
+              <!-- BOTTONE MOD E DELETE QUANDO IL DETAIL E' ATTIVO -->
+              <button
+                cdsButton="primary"
+                size="md"
+                [isExpressive]="false"
+                (click)="showSnippetDetail(item)"
+                *ngIf="showSectionDetails"
+                >
                 <div class="container-icon-label">
-                  <img src="../../../assets/icons/editBlack.svg" width="18" height="18" alt="Icona">
+                  <img src="../../../assets/icons/editWhite.svg" width="18" height="18" alt="Icona">
                   <b>Modifica</b>
                 </div>
-              </cds-overflow-menu-option>
-              <cds-overflow-menu-option type="danger" class="color-item-menu-list" (mouseover)="onButtonDeleteOver()" (mouseout)="onButtonDeleteOut()">
+              </button>
+
+              <button
+                cdsButton="danger"
+                size="md"
+                [isExpressive]="false"
+                (click)="showSnippetDetail(item)"
+                *ngIf="showSectionDetails"
+                >
                 <div class="container-icon-label">
-                  <img [src]="currentPathIconDelete" width="18" height="18" alt="Icona">
+                  <img src="../../../assets/icons/deleteWhite.svg" width="18" height="18" alt="Icona">
                   <b>Elimina</b>
                 </div>
-              </cds-overflow-menu-option>
-            </cds-overflow-menu>
+              </button>
 
-            <!-- BOTTONE MOD E DELETE QUANDO IL DETAIL E' ATTIVO -->
-            <button
-              cdsButton="primary"
-              size="md"
-              [isExpressive]="false"
-              (click)="showSnippetDetail(item)"
-              *ngIf="showSectionDetails"
-              >
-              <div class="container-icon-label">
-                <img src="../../../assets/icons/editWhite.svg" width="18" height="18" alt="Icona">
-                <b>Modifica</b>
-              </div>
-            </button>
-
-            <button
-              cdsButton="danger"
-              size="md"
-              [isExpressive]="false"
-              (click)="showSnippetDetail(item)"
-              *ngIf="showSectionDetails"
-              >
-              <div class="container-icon-label">
-                <img src="../../../assets/icons/deleteWhite.svg" width="18" height="18" alt="Icona">
-                <b>Elimina</b>
-              </div>
-            </button>
-
+            </div>
           </div>
+
         </div>
 
-      </div>
-
-      <button
-        cdsButton="primary"
-        size="md"
-        [isExpressive]="false"
-        *ngIf="showSectionDetails"
-        (click)="hideSnippetDetail()"
-        >
-        <div class="container-icon-label">
-          <img src="../../../assets/icons/backToSnippetsList.svg" width="18" height="18" alt="Icona">
-          <b>Torna alla lista</b>
-        </div>
-      </button>
-
-    </div>
-
-    <!-- SEZIONE DETTAGLIO SNIPPET -->
-    <div class="section-snippet-detail" *ngIf="showSectionDetails">
-
-      <div class="container-content-snippet-detail">
-        <div class="container-title-section-detail-snippet">
+        <button
+          cdsButton="primary"
+          size="md"
+          [isExpressive]="false"
+          *ngIf="showSectionDetails"
+          (click)="hideSnippetDetail()"
+          >
           <div class="container-icon-label">
-            <img src="../../../assets/icons/snippetIcon.svg" width="30" height="30" alt="Icona">
-            <span class="title-lg">{{selectedSnippet.titolo}}</span>
+            <img src="../../../assets/icons/backToSnippetsList.svg" width="18" height="18" alt="Icona">
+            <b>Torna alla lista</b>
           </div>
-          <cds-icon-button
-            buttonId="icon-btn1"
-            type="button"
-            kind="primary"
-            size="md"
-            description="Chiudi sezione"
-            align="left"
-            (click)="hideSnippetDetail()"
-          >
-            <img src="../../../assets/icons/closeDetailSection.svg" width="16" height="16" alt="Icona">
-          </cds-icon-button>
-        </div>
-        <div class="container-snippet-detail" *ngFor="let detail of snippetDetails">
-          <span class="title">{{detail.titolo}}</span>
+        </button>
 
-          <span>{{detail.descrizione}}</span>
+      </div>
 
-          <cds-code-snippet
-            [display]="!detail.content.includes('\n') ? inline : multi"
-            *ngIf="detail.type === snippetTypeCode"
-            [maxCollapsedNumberOfRows]="15"
-            align="left"
-            class="container-code-snippet"
-            style="overflow-y: hidden; max-inline-size: none;"
-            [ngClass]="{'color-border-code-section': detail.content.includes('\n')}"
-          >
-            {{detail.content}}
-          </cds-code-snippet>
+      <!-- SEZIONE DETTAGLIO SNIPPET -->
+      <div class="section-snippet-detail" *ngIf="showSectionDetails">
 
-          <div class="container-content-type-text" *ngIf="detail.type === snippetTypeText">
-            {{detail.content}}
-          </div>
-
-          <div class="container-section-snippet-type-image" *ngIf="detail.type === snippetTtpeImage">
-            <div class="card-snippet-imag" *ngFor="let image of detail.content" #card (click)="errorImage != image ? openModal(image) : null">
-              <img [src]="image" alt="Immagine" onerror="this.src='../../../assets/icons/trasparente.svg'" (error)="errorImage = image">
-              <div class="overlay" *ngIf="errorImage != image">Apri</div>
-              <div class="errorOverlay" *ngIf="errorImage == image"><img src="../../../assets/icons/noImage.svg"></div>
+        <div class="container-content-snippet-detail">
+          <div class="container-title-section-detail-snippet">
+            <div class="container-icon-label">
+              <img src="../../../assets/icons/snippetIcon.svg" width="30" height="30" alt="Icona">
+              <span class="title-lg">{{selectedSnippet.titolo}}</span>
             </div>
+            <cds-icon-button
+              buttonId="icon-btn1"
+              type="button"
+              kind="primary"
+              size="md"
+              description="Chiudi sezione"
+              align="left"
+              (click)="hideSnippetDetail()"
+            >
+              <img src="../../../assets/icons/closeDetailSection.svg" width="16" height="16" alt="Icona">
+            </cds-icon-button>
           </div>
+          <div class="container-snippet-detail" *ngFor="let detail of snippetDetails">
+            <span class="title">{{detail.titolo}}</span>
 
-          <div *ngIf="detail.type === snippetTtpeLink">
-            <div class="container-content-type-link flexRow justify-space-between">
-              <div class="flexRow align-streach gap-8">
-                <img src="../../../assets/icons/link.svg" width="20" height="20" alt="Icona">
-                <span>{{detail.content}}</span>
-              </div>
-              <div class="flexRow align-start gap-15">
-                <a [href]="detail.content" target="_blank" >
-                  <img src="../../../assets/icons/goToLink.svg" width="20" height="20" alt="Icona" matTooltip="text">
-                </a>
-                <img src="../../../assets/icons/copy.svg" width="20" height="20" alt="Icona" class="copyLink" (click)="copyText(detail.content)">
+            <span>{{detail.descrizione}}</span>
+
+            <cds-code-snippet
+              [display]="!detail.content.includes('\n') ? inline : multi"
+              *ngIf="detail.type === snippetTypeCode"
+              [maxCollapsedNumberOfRows]="15"
+              align="left"
+              class="container-code-snippet"
+              style="overflow-y: hidden; max-inline-size: none;"
+              [ngClass]="{'color-border-code-section': detail.content.includes('\n')}"
+            >
+              {{detail.content}}
+            </cds-code-snippet>
+
+            <div class="container-content-type-text" *ngIf="detail.type === snippetTypeText">
+              {{detail.content}}
+            </div>
+
+            <div class="container-section-snippet-type-image" *ngIf="detail.type === snippetTtpeImage">
+              <div class="card-snippet-imag" *ngFor="let image of detail.content" #card (click)="errorImage != image ? openModal(image) : null">
+                <img [src]="image" alt="Immagine" onerror="this.src='../../../assets/icons/trasparente.svg'" (error)="errorImage = image">
+                <div class="overlay" *ngIf="errorImage != image">Apri</div>
+                <div class="errorOverlay" *ngIf="errorImage == image"><img src="../../../assets/icons/noImage.svg"></div>
               </div>
             </div>
-          </div>
 
+            <div *ngIf="detail.type === snippetTtpeLink">
+              <div class="container-content-type-link flexRow justify-space-between">
+                <div class="flexRow align-streach gap-8">
+                  <img src="../../../assets/icons/link.svg" width="20" height="20" alt="Icona">
+                  <span>{{detail.content}}</span>
+                </div>
+                <div class="flexRow align-start gap-15">
+                  <a [href]="detail.content" target="_blank" >
+                    <img src="../../../assets/icons/goToLink.svg" width="20" height="20" alt="Icona" matTooltip="text">
+                  </a>
+                  <img src="../../../assets/icons/copy.svg" width="20" height="20" alt="Icona" class="copyLink" (click)="copyText(detail.content)">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
 
     </div>
+  </ng-template>
 
-  </div>
+  <!-- SEZIONE COLLABORAZIONI -->
+  <ng-template #Collaborazioni>
+
+  </ng-template>
+  
+  <!-- SEZIONE UTILIZZO -->
+  <ng-template #Utilizzo>
+
+  </ng-template>
+  
 
 </div>
 

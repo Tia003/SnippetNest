@@ -9,7 +9,7 @@
       <!-- LOGO -->
 
       <div class="container-logo mb-1">
-        <div class="flexColumn align-center gap-3">
+        <div class="flexColumn align-center gap-1">
           <img src="../../../assets/icons/iconSneppet.svg" width="70" height="70" alt="Icona" id="logo" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
           <span id="title-logo">SnippetNest</span>
         </div>
@@ -17,7 +17,7 @@
 
       <!-- BUTTON TYPE LOGIN -->
 
-      <div class="container-button-login-type">
+      <div class="container-button-login-type" [hidden]="true">
 
         <!-- LOGIN GOOGLE -->
         <button
@@ -41,7 +41,7 @@
       </div>
 
       <!-- DIVIDER -->
-      <div class="container-divider">
+      <div class="container-divider" [hidden]="true">
         <hr class="divider">
         <span>OR</span>
         <hr class="divider">
